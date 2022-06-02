@@ -10,23 +10,23 @@
         android:id="@+id/imageView"
         android:layout_width="298dp"
         android:layout_height="276dp"
-        android:layout_marginTop="118dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logintitle_textView"
         app:srcCompat="@drawable/hehehehey" />
 
     <Button
         android:id="@+id/login_button"
         android:layout_width="295dp"
         android:layout_height="48dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#FF8C32"
         android:text="Login"
         app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/loginpassword_TextInputLayout" />
 
     <TextView
         android:id="@+id/logintitle_textView"
@@ -45,10 +45,10 @@
         android:id="@+id/loginpassword_TextInputLayout"
         android:layout_width="297dp"
         android:layout_height="69dp"
-        android:layout_marginTop="573dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/loginusername_TextInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -62,10 +62,10 @@
         android:id="@+id/loginusername_TextInputLayout"
         android:layout_width="297dp"
         android:layout_height="69dp"
-        android:layout_marginTop="474dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -80,13 +80,13 @@
         android:id="@+id/redirectlogin1_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="741dp"
+        android:layout_marginTop="20dp"
         android:text="Don’t Have an Account yet?"
         android:textColor="#000000"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
     <TextView
         android:id="@+id/redirectlogin2_textView"
