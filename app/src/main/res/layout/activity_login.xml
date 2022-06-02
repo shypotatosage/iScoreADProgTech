@@ -6,95 +6,109 @@
     android:layout_height="match_parent"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/login_imageView"
-        android:layout_width="298dp"
-        android:layout_height="276dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="@+id/logintitle_textView"
-        app:layout_constraintStart_toStartOf="@+id/logintitle_textView"
-        app:layout_constraintTop_toBottomOf="@+id/logintitle_textView"
-        app:srcCompat="@drawable/hehehehey" />
-
-    <Button
-        android:id="@+id/login_button"
-        android:layout_width="295dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#FF8C32"
-        android:text="Login"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginpassword_TextInputLayout" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/logintitle_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="34dp"
-        android:text="LOGIN"
-        android:textColor="#06113C"
-        android:textSize="32dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginpassword_TextInputLayout"
-        android:layout_width="297dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginusername_TextInputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:hint="Password"
-            android:textSize="16dp" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/loginusername_TextInputLayout"
-        android:layout_width="297dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_imageView">
+            <TextView
+                android:id="@+id/redirectlogin2_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sign Up Here!"
+                android:textColor="#FF5722"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/redirectlogin1_textView"
+                app:layout_constraintStart_toStartOf="@+id/redirectlogin1_textView"
+                app:layout_constraintTop_toBottomOf="@+id/redirectlogin1_textView" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#FFFFFF"
-            android:hint="Username"
-            android:textSize="16dp" />
+            <TextView
+                android:id="@+id/redirectlogin1_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Don’t Have an Account yet?"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/login_button"
+                app:layout_constraintStart_toStartOf="@+id/login_button"
+                app:layout_constraintTop_toBottomOf="@+id/login_button" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginusername_TextInputLayout"
+                android:layout_width="297dp"
+                android:layout_height="69dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView4"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4">
 
-    <TextView
-        android:id="@+id/redirectlogin1_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Don’t Have an Account yet?"
-        android:textColor="#000000"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:hint="Username"
+                    android:textSize="16dp" />
 
-    <TextView
-        android:id="@+id/redirectlogin2_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up Here!"
-        android:textColor="#FF5722"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/redirectlogin1_textView"
-        app:layout_constraintStart_toStartOf="@+id/redirectlogin1_textView"
-        app:layout_constraintTop_toBottomOf="@+id/redirectlogin1_textView" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/login_button"
+                android:layout_width="295dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#FF8C32"
+                android:text="Login"
+                app:layout_constraintEnd_toEndOf="@+id/loginpassword_TextInputLayout"
+                app:layout_constraintStart_toStartOf="@+id/loginpassword_TextInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/loginpassword_TextInputLayout" />
+
+            <TextView
+                android:id="@+id/logintitle_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:text="LOGIN"
+                android:textColor="#06113C"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/loginpassword_TextInputLayout"
+                android:layout_width="297dp"
+                android:layout_height="69dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/loginusername_TextInputLayout"
+                app:layout_constraintStart_toStartOf="@+id/loginusername_TextInputLayout"
+                app:layout_constraintTop_toBottomOf="@+id/loginusername_TextInputLayout">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#FFFFFF"
+                    android:hint="Password"
+                    android:textSize="16dp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="298dp"
+                android:layout_height="276dp"
+                android:layout_marginTop="50dp"
+                app:layout_constraintEnd_toEndOf="@+id/logintitle_textView"
+                app:layout_constraintStart_toStartOf="@+id/logintitle_textView"
+                app:layout_constraintTop_toBottomOf="@+id/logintitle_textView"
+                app:srcCompat="@drawable/hehehehey" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
