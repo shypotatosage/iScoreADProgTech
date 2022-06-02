@@ -4,6 +4,275 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenuActivity">
+    tools:context=".MainMenuActivity" >
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="85dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/mainmenu_imageView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/teacherdummy" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/hellomainmenu_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hello, User"
+                android:textColor="#000000"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/cardView"
+                app:layout_constraintEnd_toStartOf="@+id/cardView"
+                app:layout_constraintHorizontal_bias="0.341"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/cardView"
+                app:layout_constraintVertical_bias="0.436" />
+
+            <TextView
+                android:id="@+id/welcomemainmenu_textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome Back!"
+                app:layout_constraintEnd_toEndOf="@+id/hellomainmenu_textView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/hellomainmenu_textView"
+                app:layout_constraintTop_toBottomOf="@+id/hellomainmenu_textView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/classlist_CardView"
+                android:layout_width="330dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="50dp"
+                android:backgroundTint="#FFBC84"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/classlist_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="150dp"
+                        android:text="Class List"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:translationZ="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.328"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/classavailable_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="X Class Available"
+                        android:textColor="#000000"
+                        android:textSize="15sp"
+                        android:translationZ="5dp"
+                        app:layout_constraintEnd_toEndOf="@+id/classlist_textView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/classlist_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/classlist_textView" />
+
+                    <Button
+                        android:id="@+id/viewclasslist_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/classavailable_textView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/classavailable_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/classavailable_textView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/studentlist_imageView"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="30dp"
+                android:translationZ="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/studentlist_CardView"
+                app:layout_constraintStart_toStartOf="@+id/studentlist_CardView"
+                app:layout_constraintTop_toTopOf="@+id/studentlist_CardView"
+                app:srcCompat="@drawable/bookglobe" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/studentlist_CardView"
+                android:layout_width="330dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="70dp"
+                android:backgroundTint="#FFBC84"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/classlist_CardView"
+                app:layout_constraintStart_toStartOf="@+id/classlist_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/classlist_CardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/studentlist_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="150dp"
+                        android:text="Student List"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:translationZ="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/studentavailable_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="X Students Available"
+                        android:textColor="#000000"
+                        android:translationZ="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/studentlist_textView"
+                        app:layout_constraintStart_toStartOf="@+id/studentlist_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/studentlist_textView" />
+
+                    <Button
+                        android:id="@+id/studentlist_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/studentavailable_textView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/studentavailable_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/studentavailable_textView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/updateprofile_CardView"
+                android:layout_width="330dp"
+                android:layout_height="160dp"
+                android:layout_marginTop="70dp"
+                android:backgroundTint="#FFBC84"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/studentlist_CardView"
+                app:layout_constraintStart_toStartOf="@+id/studentlist_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/studentlist_CardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/changeprofile_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="Change Your Profile"
+                        android:textColor="#000000"
+                        android:translationZ="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/updateprofile_textView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/updateprofile_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/updateprofile_textView" />
+
+                    <Button
+                        android:id="@+id/updateprofile_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        android:translationZ="10dp"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/changeprofile_textView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/changeprofile_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/changeprofile_textView" />
+
+                    <TextView
+                        android:id="@+id/updateprofile_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="145dp"
+                        android:text="Update Profile"
+                        android:textColor="#000000"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
+                        android:translationZ="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ImageView
+                android:id="@+id/classlist_imageView"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="250dp"
+                android:layout_marginTop="30dp"
+                android:translationZ="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/classlist_CardView"
+                app:layout_constraintHorizontal_bias="0.941"
+                app:layout_constraintStart_toStartOf="@+id/classlist_CardView"
+                app:layout_constraintTop_toTopOf="@+id/classlist_CardView"
+                app:srcCompat="@drawable/bookapple" />
+
+            <ImageView
+                android:id="@+id/updateprofile_imageView"
+                android:layout_width="150dp"
+                android:layout_height="160dp"
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="50dp"
+                android:translationZ="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/updateprofile_CardView"
+                app:layout_constraintStart_toStartOf="@+id/updateprofile_CardView"
+                app:layout_constraintTop_toTopOf="@+id/updateprofile_CardView"
+                app:srcCompat="@drawable/list" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
