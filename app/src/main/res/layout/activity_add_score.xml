@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UpdateProfileActivity">
+    tools:context=".AddScoreActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,8 +19,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <Button
+                    android:id="@+id/updateProfileBtn2"
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginBottom="32dp"
+                    android:backgroundTint="#FF8C32"
+                    android:text="ADD SCORE"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="7.5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addScoreNoteTIL" />
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/updateProfileBackFAB"
+                    android:id="@+id/addScoreBackFAB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -31,28 +47,12 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_arrowback" />
 
-                <Button
-                    android:id="@+id/updateProfileBtn"
-                    android:layout_width="340dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginBottom="32dp"
-                    android:backgroundTint="#FF8C32"
-                    android:text="Update"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    app:cornerRadius="7.5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/passwordUpdateTIL" />
-
                 <TextView
-                    android:id="@+id/updateProfileTV"
+                    android:id="@+id/addScoreTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="68dp"
-                    android:text="Update Profile"
+                    android:text="Add Score"
                     android:textColor="#06113C"
                     android:textSize="32sp"
                     android:textStyle="bold"
@@ -60,73 +60,62 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                <ImageView
+                    android:id="@+id/imageView8"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:cardCornerRadius="500dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="28dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/updateProfileTV">
-
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="170dp"
-                        android:layout_height="170dp"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/defaultprofilepicture" />
-                </androidx.cardview.widget.CardView>
+                    app:layout_constraintTop_toBottomOf="@+id/addScoreTV"
+                    app:srcCompat="@drawable/aaa1__1_" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/unameUpdateTIL"
+                    android:id="@+id/addScoreNameTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView">
+                    app:layout_constraintTop_toBottomOf="@+id/imageView8">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#FFFFFF"
-                        android:hint="Username" />
+                        android:background="#FFFFFF"
+                        android:hint="Assignment's Name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/emailUpdateTIL"
+                    android:id="@+id/addScoreScoreTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/unameUpdateTIL">
+                    app:layout_constraintTop_toBottomOf="@+id/addScoreNameTIL">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#FFFFFF"
-                        android:hint="Email" />
+                        android:background="#FFFFFF"
+                        android:hint="Score" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/passwordUpdateTIL"
+                    android:id="@+id/addScoreNoteTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/emailUpdateTIL"
-                    app:passwordToggleEnabled="true">
+                    app:layout_constraintTop_toBottomOf="@+id/addScoreScoreTIL">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#FFFFFF"
-                        android:hint="Password"
-                        android:inputType="textPassword"
-                        android:password="true" />
+                        android:background="#FFFFFF"
+                        android:hint="Additional Note" />
                 </com.google.android.material.textfield.TextInputLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

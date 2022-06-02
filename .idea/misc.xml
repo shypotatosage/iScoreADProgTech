@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Documents/AndroidStudioProject/iScore/app/src/main/res/layout/activity_add_score.xml" value="0.223731884057971" />
+        <entry key="..\:/Documents/AndroidStudioProject/iScore/app/src/main/res/layout/activity_class_list.xml" value="0.223731884057971" />
         <entry key="..\:/Documents/AndroidStudioProject/iScore/app/src/main/res/layout/activity_login.xml" value="0.223731884057971" />
         <entry key="..\:/Documents/AndroidStudioProject/iScore/app/src/main/res/layout/activity_main.xml" value="0.1852355072463768" />
         <entry key="..\:/Documents/AndroidStudioProject/iScore/app/src/main/res/layout/activity_register.xml" value="0.4" />
