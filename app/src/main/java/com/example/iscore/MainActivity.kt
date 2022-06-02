@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         splash.animate().setDuration(3000).alpha(1f).withEndAction {
-            val a = Intent(this, RegisterActivity::class.java)
+            val a = Intent(this, MainMenuActivity::class.java)
             startActivity(a)
             overridePendingTransition(R.anim.none, R.anim.slide_left_out)
             finish()
