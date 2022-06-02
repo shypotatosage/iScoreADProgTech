@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">iScore</string>
+    <string name="loginHere"><u>Login Here!</u></string>
 </resources>
