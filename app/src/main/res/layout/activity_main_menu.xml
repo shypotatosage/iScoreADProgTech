@@ -20,8 +20,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="18dp"
                 android:layout_marginTop="18dp"
+                android:layout_marginEnd="337dp"
+                android:layout_marginBottom="59dp"
                 android:clickable="true"
                 app:backgroundTint="#FF8C32"
+                app:layout_constraintBottom_toTopOf="@+id/hellomainmenu_textView"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_arrowback" />

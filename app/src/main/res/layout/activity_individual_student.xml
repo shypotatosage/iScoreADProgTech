@@ -8,11 +8,15 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="match_parent">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/individualStudentFAB"
@@ -30,19 +34,247 @@
                 android:id="@+id/namaindividualstudent_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="100dp"
+                android:text="Micheila Jiemesha"
+                android:textColor="#000000"
+                android:textSize="25dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/alamatindividualstudent_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginTop="5dp"
+                android:text="Jl. Citraland Surabaya Blok A"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/namaindividualstudent_textView"
+                app:layout_constraintTop_toBottomOf="@+id/namaindividualstudent_textView" />
 
             <TextView
                 android:id="@+id/notelpindividualstudent_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:layout_marginTop="5dp"
+                android:text="0888888888888"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/alamatindividualstudent_textView"
+                app:layout_constraintTop_toBottomOf="@+id/alamatindividualstudent_textView" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/checkscore_CardView"
+                android:layout_width="160dp"
+                android:layout_height="250dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#FFBC84"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/notelpindividualstudent_textView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/checkscore_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="Check Score"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/checkscore_imageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/checkscore_textView"
+                        app:srcCompat="@drawable/feedback_icon_1" />
+
+                    <Button
+                        android:id="@+id/checkscore_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/checkscore_imageView"
+                        app:layout_constraintStart_toStartOf="@+id/checkscore_imageView"
+                        app:layout_constraintTop_toBottomOf="@+id/checkscore_imageView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/addscore_CardView"
+                android:layout_width="160dp"
+                android:layout_height="250dp"
+                android:layout_marginEnd="30dp"
+                android:backgroundTint="#FFBC84"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/checkscore_CardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/addscore_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="Add Score"
+                        android:textColor="#000000"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/addscore_imageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/addscore_textView"
+                        app:srcCompat="@drawable/feedback_icon_1" />
+
+                    <Button
+                        android:id="@+id/addscore_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/addscore_imageView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/editstudent_CardView"
+                android:layout_width="160dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#FFBC84"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/checkscore_CardView"
+                app:layout_constraintStart_toStartOf="@+id/checkscore_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/checkscore_CardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/editstudent_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="Edit Student"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/editstudent_imageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="@+id/editstudent_textView"
+                        app:layout_constraintStart_toStartOf="@+id/editstudent_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/editstudent_textView"
+                        app:srcCompat="@drawable/feedback_icon_1" />
+
+                    <Button
+                        android:id="@+id/editstudent_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="@+id/editstudent_imageView"
+                        app:layout_constraintStart_toStartOf="@+id/editstudent_imageView"
+                        app:layout_constraintTop_toBottomOf="@+id/editstudent_imageView" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/deletestudent_CardView"
+                android:layout_width="160dp"
+                android:layout_height="250dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="#FFBC84"
+                app:cardCornerRadius="25dp"
+                app:layout_constraintEnd_toEndOf="@+id/addscore_CardView"
+                app:layout_constraintStart_toStartOf="@+id/addscore_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/addscore_CardView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/deletestudent_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:text="Delete Student"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/deletestudent_imageView"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/deletestudent_textView"
+                        app:srcCompat="@drawable/feedback_icon_1" />
+
+                    <Button
+                        android:id="@+id/deletestudent_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:backgroundTint="#06113C"
+                        android:text="View"
+                        app:cornerRadius="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/deletestudent_imageView" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
