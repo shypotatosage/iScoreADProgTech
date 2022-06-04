@@ -14,6 +14,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/mainMenuFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                android:clickable="true"
+                app:backgroundTint="#FF8C32"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_arrowback" />
+
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="wrap_content"
@@ -78,15 +90,13 @@
                         android:id="@+id/classlist_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginEnd="150dp"
                         android:text="Class List"
                         android:textColor="#000000"
                         android:textSize="25dp"
                         android:textStyle="bold"
                         android:translationZ="5dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.328"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -150,14 +160,13 @@
                         android:id="@+id/studentlist_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginEnd="150dp"
                         android:text="Student List"
                         android:textColor="#000000"
                         android:textSize="25dp"
                         android:textStyle="bold"
                         android:translationZ="5dp"
-                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -234,15 +243,13 @@
                         android:id="@+id/updateprofile_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginEnd="145dp"
                         android:text="Update Profile"
                         android:textColor="#000000"
                         android:textSize="25dp"
                         android:textStyle="bold"
                         android:translationZ="10dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
