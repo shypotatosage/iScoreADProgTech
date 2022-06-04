@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddScoreActivity">
+    tools:context=".EditScoreActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -19,8 +19,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/editScoreTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="68dp"
+                    android:text="Edit Score"
+                    android:textColor="#06113C"
+                    android:textSize="32sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
                 <Button
-                    android:id="@+id/addScoreBtn"
+                    android:id="@+id/editScoreBtn"
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="36dp"
@@ -32,11 +45,13 @@
                     app:cornerRadius="7.5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.492"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/addScoreNoteTIL" />
+                    app:layout_constraintTop_toBottomOf="@+id/editScoreNoteTIL"
+                    app:layout_constraintVertical_bias="1.0" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/addScoreBackFAB"
+                    android:id="@+id/editScoreFAB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
@@ -47,78 +62,65 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ic_arrowback" />
 
-                <TextView
-                    android:id="@+id/addScoreTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="68dp"
-                    android:text="Add Score"
-                    android:textColor="#06113C"
-                    android:textSize="32sp"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/imageView5"
                     android:layout_width="wrap_content"
                     android:layout_height="200dp"
                     android:layout_marginTop="28dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/addScoreTV"
+                    app:layout_constraintTop_toBottomOf="@+id/editScoreTV"
                     app:srcCompat="@drawable/aaa1__1_" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/addScoreNameTIL"
+                    android:id="@+id/editScoreNameTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/imageView8">
+                    app:layout_constraintTop_toBottomOf="@+id/imageView5">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
+                        android:backgroundTint="#FFFFFF"
                         android:hint="Assignment's Name" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/addScoreScoreTIL"
+                    android:id="@+id/editScoreNoteTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/addScoreNameTIL">
+                    app:layout_constraintTop_toBottomOf="@+id/editScoreScoreTIL">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
-                        android:hint="Score" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/addScoreNoteTIL"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/addScoreScoreTIL">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:layout_width="340dp"
-                        android:layout_height="wrap_content"
-                        android:background="#FFFFFF"
+                        android:backgroundTint="#FFFFFF"
                         android:hint="Additional Note" />
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/editScoreScoreTIL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editScoreNameTIL">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="340dp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#FFFFFF"
+                        android:hint="Score" />
+                </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
