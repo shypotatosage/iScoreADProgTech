@@ -74,7 +74,7 @@
                 app:layout_constraintStart_toStartOf="@+id/hellomainmenu_textView"
                 app:layout_constraintTop_toBottomOf="@+id/hellomainmenu_textView" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/classlist_CardView"
                 android:layout_width="330dp"
                 android:layout_height="160dp"
@@ -85,7 +85,9 @@
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/cardView">
+                app:layout_constraintTop_toBottomOf="@+id/cardView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -132,7 +134,7 @@
                         app:layout_constraintStart_toStartOf="@+id/classavailable_textView"
                         app:layout_constraintTop_toBottomOf="@+id/classavailable_textView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <ImageView
                 android:id="@+id/studentlist_imageView"
@@ -146,7 +148,7 @@
                 app:layout_constraintTop_toTopOf="@+id/studentlist_CardView"
                 app:srcCompat="@drawable/bookglobe" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/studentlist_CardView"
                 android:layout_width="330dp"
                 android:layout_height="160dp"
@@ -156,7 +158,9 @@
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="@+id/classlist_CardView"
                 app:layout_constraintStart_toStartOf="@+id/classlist_CardView"
-                app:layout_constraintTop_toBottomOf="@+id/classlist_CardView">
+                app:layout_constraintTop_toBottomOf="@+id/classlist_CardView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -201,9 +205,9 @@
                         app:layout_constraintStart_toStartOf="@+id/studentavailable_textView"
                         app:layout_constraintTop_toBottomOf="@+id/studentavailable_textView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/updateprofile_CardView"
                 android:layout_width="330dp"
                 android:layout_height="160dp"
@@ -213,7 +217,9 @@
                 app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/studentlist_CardView"
                 app:layout_constraintStart_toStartOf="@+id/studentlist_CardView"
-                app:layout_constraintTop_toBottomOf="@+id/studentlist_CardView">
+                app:layout_constraintTop_toBottomOf="@+id/studentlist_CardView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -260,7 +266,7 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
             <ImageView
                 android:id="@+id/classlist_imageView"
@@ -281,7 +287,9 @@
                 android:layout_height="160dp"
                 android:layout_marginStart="180dp"
                 android:layout_marginTop="30dp"
+                android:layout_marginBottom="32dp"
                 android:translationZ="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/updateprofile_CardView"
                 app:layout_constraintStart_toStartOf="@+id/updateprofile_CardView"
                 app:layout_constraintTop_toTopOf="@+id/updateprofile_CardView"
