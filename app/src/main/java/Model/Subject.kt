@@ -1,6 +1,6 @@
 package Model
 
-open class Orang (
+open class Subject (
     id :String,
     name: String
 )

@@ -8,7 +8,7 @@ class User (
     var username: String,
     var email: String,
     var password: String
-): Orang(id, username), Parcelable {
+): Subject(id, username), Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
