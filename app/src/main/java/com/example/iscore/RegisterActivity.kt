@@ -26,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
         listener()
 
-        textView5.setOnClickListener {
+        loginHereTV.setOnClickListener {
             val intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
