@@ -99,6 +99,13 @@ class RegisterActivity : AppCompatActivity() {
                     }
             }
         }
+
+        loginHereTV.setOnClickListener {
+            val myIntent = Intent(this, LoginActivity::class.java)
+
+            startActivity(myIntent)
+            finish()
+        }
     }
 
     private fun saveData(userID: String, uname: String, email: String) {
