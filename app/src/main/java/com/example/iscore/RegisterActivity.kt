@@ -84,6 +84,10 @@ class RegisterActivity : AppCompatActivity() {
                             Log.d(TAG, "createUserWithEmail:success")
                             val user = auth.currentUser
 
+                            saveData(
+                                user!!.uid, usernameTIL.editText!!.text.toString().trim(),
+                                user!!.email!!, )
+
                             val myIntent = Intent(this, LoginActivity::class.java)
 
                             startActivity(myIntent)
@@ -99,13 +103,11 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveData(uname: String, email: String, password: String) {
+    private fun saveData(userID: String, uname: String, email: String) {
         val database = Firebase.database
         val ref = database.getReference("users")
 
-        val userID = ref.push().key.toString()
-
-        var usr = User(userID, uname, email, password)
+        var usr = User(userID, uname, email)
 
         ref.child("users").child(userID).setValue(usr).addOnCompleteListener {
             Toast.makeText(applicationContext, "User successfully registered!", Toast.LENGTH_LONG).show()
