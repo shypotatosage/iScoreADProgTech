@@ -32,6 +32,11 @@ class RegisterActivity : AppCompatActivity() {
         val currentUser = auth.currentUser
         if(currentUser != null){
             val user = Firebase.auth.currentUser
+
+            val myIntent = Intent(this, MainMenuActivity::class.java)
+
+            startActivity(myIntent)
+            finish()
         }
     }
 
@@ -79,7 +84,7 @@ class RegisterActivity : AppCompatActivity() {
 
                             saveData(
                                 user!!.uid, usernameTIL.editText!!.text.toString().trim(),
-                                user!!.email!!, )
+                                user!!.email!!)
 
                             val myIntent = Intent(this, LoginActivity::class.java)
 

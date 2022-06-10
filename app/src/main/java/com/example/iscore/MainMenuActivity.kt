@@ -27,7 +27,7 @@ class MainMenuActivity : AppCompatActivity() {
             startActivity(myIntent)
         }
 
-        viewstudentlist_button.setOnClickListener {
+        studentlist_button.setOnClickListener {
             val myIntent = Intent(this, StudentListActivity::class.java)
 
             startActivity(myIntent)
