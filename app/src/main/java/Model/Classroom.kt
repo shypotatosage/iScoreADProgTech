@@ -6,9 +6,11 @@ import android.os.Parcelable
 class Classroom (
     var id: String,
     var name: String,
-    var students: Student
+    var desc: String,
+    var students: ArrayList<Student>
 ): Subject(id, name), Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         TODO("students")
@@ -18,6 +20,7 @@ class Classroom (
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(id)
         parcel.writeString(name)
+        parcel.writeString(desc)
     }
 
     override fun describeContents(): Int {
@@ -33,4 +36,5 @@ class Classroom (
             return arrayOfNulls(size)
         }
     }
+
 }
