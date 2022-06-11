@@ -11,8 +11,8 @@ class ClassListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_class_list)
 
-        classListBackFAB.setOnClickListener {
-            val intent = Intent(this,MainMenuActivity::class.java)
+        addclassFAB.setOnClickListener {
+            val intent = Intent(this,AddClassActivity::class.java)
             startActivity(intent)
         }
     }
