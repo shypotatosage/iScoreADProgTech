@@ -26,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        redirectlogin1_textView.setOnClickListener {
+        redirectlogin2_textView.setOnClickListener {
             val intent = Intent(this,RegisterActivity::class.java)
             startActivity(intent)
         }
