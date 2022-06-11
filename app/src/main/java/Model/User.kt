@@ -4,9 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class User (
-    var id: String,
-    var username: String,
-    var email: String,
+    var id: String = "",
+    var username: String = "",
+    var email: String = "",
 ): Subject(id, username), Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,

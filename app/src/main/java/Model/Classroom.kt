@@ -4,10 +4,10 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Classroom (
-    var id: String,
-    var name: String,
-    var desc: String,
-    var students: ArrayList<Student>
+    var id: String = "",
+    var name: String = "",
+    var desc: String = "",
+    var students: ArrayList<Student> = arrayListOf()
 ): Subject(id, name), Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,

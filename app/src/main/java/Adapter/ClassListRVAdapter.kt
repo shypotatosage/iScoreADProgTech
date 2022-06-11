@@ -16,7 +16,7 @@ class ClassListRVAdapter(val listClass: ArrayList<Classroom>, val cardListener: 
 
         fun setData(data: Classroom){
             itemView.classNameTV.text = data.name
-            itemView.classStudentTV.text = data.students.size.toString()
+            itemView.classStudentTV.text = data.students.size.toString() + " Students Enrolled"
 
             if (data.imageUri!!.isNotEmpty()) {
                 itemView.classImageView.setImageURI(Uri.parse(data.imageUri))

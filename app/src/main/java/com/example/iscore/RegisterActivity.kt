@@ -11,13 +11,18 @@ import android.util.Patterns
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
+
     private lateinit var auth: FirebaseAuth
+    private lateinit var username: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,8 @@ class RegisterActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
+            username = getUsername(currentUser.uid).toString()
+            GlobalVar.user = User(currentUser.uid, username, currentUser.email!!)
             val myIntent = Intent(this, MainMenuActivity::class.java)
 
             startActivity(myIntent)
@@ -122,5 +129,20 @@ class RegisterActivity : AppCompatActivity() {
         ref.child("users").child(userID).setValue(usr).addOnCompleteListener {
             Toast.makeText(applicationContext, "User successfully registered!", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun getUsername(uid: String) {
+        val database = Firebase.database
+        val ref = database.getReference("users")
+        val valueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                username = dataSnapshot.child("users").child(uid).getValue(User::class.java)!!.username;
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
+            }
+        }
+        ref.addValueEventListener(valueEventListener)
     }
 }
