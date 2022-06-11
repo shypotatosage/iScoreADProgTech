@@ -2,9 +2,13 @@ package com.example.iscore
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main_menu.*
@@ -16,29 +20,30 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
-
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
             // Name, email address, and profile photo Url
-            val database = Firebase.database
-            val myRef = database.getReference("message")
-
-            myRef.setValue("Hello, World!")
-//            val ref = FirebaseDatabase.getInstance().getReference(user).child(user.uid)
-//            ref.child(user.getUid()).setValue(user_class);
-            val name = user.displayName
-            val email = user.email
-            val photoUrl = user.photoUrl
-
-            // Check if user's email is verified
-            val emailVerified = user.isEmailVerified
-
-            // The user's ID, unique to the Firebase project. Do NOT use this value to
-            // authenticate with your backend server, if you have one. Use
-            // FirebaseUser.getToken() instead.
             val uid = user.uid
+            val database = Firebase.database
+            val myRef = database.getReference("users")
 
-            hellomainmenu_textView.setText("Hello, " + uid)
+            val ordersRef = myRef.child("users").child(uid)
+        val valueEventListener = object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val username = dataSnapshot.child("username").getValue()
+//                untuk mengambil data didalam data
+//                val username = dataSnapshot.child("classes").child("name").getValue()
+                   Log.d("DataBaseGetName", username.toString())
+
+                    hellomainmenu_textView.setText("Hello, " + username)
+            }
+            override fun onCancelled(databaseError: DatabaseError) {
+                Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
+            }
+        }
+   ordersRef.addValueEventListener(valueEventListener)
+
+
         }
 
         Listener()
