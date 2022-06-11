@@ -7,10 +7,8 @@ class User (
     var id: String,
     var username: String,
     var email: String,
-    var password: String
-): Orang(id, username), Parcelable {
+): Subject(id, username), Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!
@@ -21,7 +19,6 @@ class User (
         parcel.writeString(id)
         parcel.writeString(username)
         parcel.writeString(email)
-        parcel.writeString(password)
     }
 
     override fun describeContents(): Int {

@@ -26,7 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         auth = Firebase.auth
         listener()
 
-        textView5.setOnClickListener {
+        loginHereTV.setOnClickListener {
             val intent = Intent(this,LoginActivity::class.java)
             startActivity(intent)
         }
@@ -38,7 +38,10 @@ class RegisterActivity : AppCompatActivity() {
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         if(currentUser != null){
-            val user = Firebase.auth.currentUser
+            val myIntent = Intent(this, MainMenuActivity::class.java)
+
+            startActivity(myIntent)
+            finish()
         }
     }
 
@@ -84,6 +87,10 @@ class RegisterActivity : AppCompatActivity() {
                             Log.d(TAG, "createUserWithEmail:success")
                             val user = auth.currentUser
 
+                            saveData(
+                                user!!.uid, usernameTIL.editText!!.text.toString().trim(),
+                                user!!.email!!)
+
                             val myIntent = Intent(this, LoginActivity::class.java)
 
                             startActivity(myIntent)
@@ -97,15 +104,20 @@ class RegisterActivity : AppCompatActivity() {
                     }
             }
         }
+
+        loginHereTV.setOnClickListener {
+            val myIntent = Intent(this, LoginActivity::class.java)
+
+            startActivity(myIntent)
+            finish()
+        }
     }
 
-    private fun saveData(uname: String, email: String, password: String) {
+    private fun saveData(userID: String, uname: String, email: String) {
         val database = Firebase.database
         val ref = database.getReference("users")
 
-        val userID = ref.push().key.toString()
-
-        var usr = User(userID, uname, email, password)
+        var usr = User(userID, uname, email)
 
         ref.child("users").child(userID).setValue(usr).addOnCompleteListener {
             Toast.makeText(applicationContext, "User successfully registered!", Toast.LENGTH_LONG).show()
