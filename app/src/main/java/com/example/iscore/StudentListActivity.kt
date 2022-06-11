@@ -11,13 +11,17 @@ class StudentListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_list)
 
+        listener()
+    }
+
+    private fun listener() {
         studentListFAB.setOnClickListener {
-            val intent = Intent(this,MainMenuActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
         addStudentofclassFAB.setOnClickListener {
             val intent = Intent(this,AddStudentActivity::class.java)
+
             startActivity(intent)
         }
     }

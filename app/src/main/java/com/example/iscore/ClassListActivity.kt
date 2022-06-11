@@ -8,20 +8,19 @@ import Model.Classroom
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_class_list.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 class ClassListActivity : AppCompatActivity(), CardListener {
 
     private var classArrayList: ArrayList<Classroom> = arrayListOf()
-    private val adapter = ClassListRVAdapter(classArrayList, this)
+    private lateinit var adapter: ClassListRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +29,13 @@ class ClassListActivity : AppCompatActivity(), CardListener {
         setAdapter()
         getData()
         listener()
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        setAdapter()
+        getData()
     }
 
     private fun listener() {
@@ -56,6 +62,11 @@ class ClassListActivity : AppCompatActivity(), CardListener {
                         classArrayList.add(classroom!!)
                     }
 
+                    GlobalVar.classArrayList = classArrayList
+                    classArrayList = arrayListOf()
+
+                    Toast.makeText(applicationContext, "" + classArrayList.size.toString(), Toast.LENGTH_LONG).show()
+
                     adapter.notifyDataSetChanged()
                 }
             }
@@ -64,16 +75,20 @@ class ClassListActivity : AppCompatActivity(), CardListener {
                 TODO("Not yet implemented")
             }
 
-        }
-        )
+        })
     }
 
     private fun setAdapter() {
+        adapter = ClassListRVAdapter(classArrayList, this)
         classList_recyclerView.layoutManager = LinearLayoutManager(this)
         classList_recyclerView.adapter = adapter
     }
 
     override fun onCardClick(position: Int) {
-        TODO("Not yet implemented")
+        val myIntent = Intent(this, StudentListActivity::class.java).apply {
+            putExtra("Position", position)
+        }
+
+        startActivity(myIntent)
     }
 }
