@@ -32,18 +32,19 @@ class MainMenuActivity : AppCompatActivity() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val username = dataSnapshot.child("username").getValue()
 //                untuk mengambil data didalam data
-//                val username = dataSnapshot.child("classes").child("name").getValue()
+                val classcount = dataSnapshot.child("classes").childrenCount
+                val studentcount = dataSnapshot.child("student").childrenCount
                    Log.d("DataBaseGetName", username.toString())
 
                     hellomainmenu_textView.setText("Hello, " + username)
+                    classavailable_textView.setText(classcount.toString() + " Class Available")
+                    studentavailable_textView.setText(studentcount.toString()+ " Students Available")
             }
             override fun onCancelled(databaseError: DatabaseError) {
                 Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
             }
         }
    ordersRef.addValueEventListener(valueEventListener)
-
-
         }
 
         Listener()
