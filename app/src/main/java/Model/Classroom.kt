@@ -23,6 +23,8 @@ class Classroom (
         parcel.writeString(desc)
     }
 
+    var imageUri: String = ""
+
     override fun describeContents(): Int {
         return 0
     }
