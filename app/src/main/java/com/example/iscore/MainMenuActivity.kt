@@ -5,7 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_main_menu.*
+import kotlinx.android.synthetic.main.activity_student_list.*
 
 
 class MainMenuActivity : AppCompatActivity() {
@@ -17,8 +20,12 @@ class MainMenuActivity : AppCompatActivity() {
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
             // Name, email address, and profile photo Url
-            val ref = FirebaseDatabase.getInstance().getReference(user).child(user.uid)
-            ref.child(user.getUid()).setValue(user_class);
+            val database = Firebase.database
+            val myRef = database.getReference("message")
+
+            myRef.setValue("Hello, World!")
+//            val ref = FirebaseDatabase.getInstance().getReference(user).child(user.uid)
+//            ref.child(user.getUid()).setValue(user_class);
             val name = user.displayName
             val email = user.email
             val photoUrl = user.photoUrl
@@ -31,9 +38,8 @@ class MainMenuActivity : AppCompatActivity() {
             // FirebaseUser.getToken() instead.
             val uid = user.uid
 
-            hellomainmenu_textView.setText("Hello, " + name)
+            hellomainmenu_textView.setText("Hello, " + uid)
         }
-
 
         Listener()
     }
