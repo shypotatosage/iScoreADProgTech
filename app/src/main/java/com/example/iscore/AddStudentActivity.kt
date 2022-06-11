@@ -10,10 +10,13 @@ class AddStudentActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_student)
+    }
 
+    private fun listener() {
         addStudentBackFAB.setOnClickListener {
-            val intent = Intent(this,StudentListActivity::class.java)
-            startActivity(intent)
+            finish()
         }
+
+        addStudentBtn.setOnClickListener {  }
     }
 }
