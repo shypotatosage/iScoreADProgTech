@@ -8,11 +8,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="-163dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/mainMenuFAB"
@@ -156,9 +158,9 @@
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="8dp"
-                app:layout_constraintEnd_toEndOf="@+id/classlist_CardView"
-                app:layout_constraintStart_toStartOf="@+id/classlist_CardView"
-                app:layout_constraintTop_toBottomOf="@+id/classlist_CardView"
+                app:layout_constraintEnd_toEndOf="@+id/updateprofile_CardView"
+                app:layout_constraintStart_toStartOf="@+id/updateprofile_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/updateprofile_CardView"
                 app:strokeColor="#80202020"
                 app:strokeWidth="0.05dp">
 
@@ -167,12 +169,12 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/studentlist_textView"
+                        android:id="@+id/deleteaccount_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
-                        android:text="Student List"
+                        android:text="Delete Account"
                         android:textColor="#000000"
                         android:textSize="25dp"
                         android:textStyle="bold"
@@ -181,29 +183,30 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/studentavailable_textView"
+                        android:id="@+id/delete_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="X Students Available"
+                        android:text="Delete Current Account"
                         android:textColor="#000000"
                         android:translationZ="10dp"
-                        app:layout_constraintEnd_toEndOf="@+id/studentlist_textView"
-                        app:layout_constraintStart_toStartOf="@+id/studentlist_textView"
-                        app:layout_constraintTop_toBottomOf="@+id/studentlist_textView" />
+                        app:layout_constraintEnd_toEndOf="@+id/deleteaccount_textView"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@+id/deleteaccount_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/deleteaccount_textView" />
 
                     <Button
-                        android:id="@+id/studentlist_button"
+                        android:id="@+id/deleteaccount_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="20dp"
                         android:backgroundTint="#06113C"
-                        android:text="View"
+                        android:text="Delete"
                         app:cornerRadius="12dp"
-                        app:layout_constraintEnd_toEndOf="@+id/studentavailable_textView"
+                        app:layout_constraintEnd_toEndOf="@+id/delete_textView"
                         app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toStartOf="@+id/studentavailable_textView"
-                        app:layout_constraintTop_toBottomOf="@+id/studentavailable_textView" />
+                        app:layout_constraintStart_toStartOf="@+id/delete_textView"
+                        app:layout_constraintTop_toBottomOf="@+id/delete_textView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -215,9 +218,9 @@
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="10dp"
-                app:layout_constraintEnd_toEndOf="@+id/studentlist_CardView"
-                app:layout_constraintStart_toStartOf="@+id/studentlist_CardView"
-                app:layout_constraintTop_toBottomOf="@+id/studentlist_CardView"
+                app:layout_constraintEnd_toEndOf="@+id/classlist_CardView"
+                app:layout_constraintStart_toStartOf="@+id/classlist_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/classlist_CardView"
                 app:strokeColor="#80202020"
                 app:strokeWidth="0.05dp">
 
@@ -287,9 +290,7 @@
                 android:layout_height="160dp"
                 android:layout_marginStart="180dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginBottom="32dp"
                 android:translationZ="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/updateprofile_CardView"
                 app:layout_constraintStart_toStartOf="@+id/updateprofile_CardView"
                 app:layout_constraintTop_toTopOf="@+id/updateprofile_CardView"
