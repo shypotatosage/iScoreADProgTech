@@ -61,7 +61,7 @@ class AddClassActivity : AppCompatActivity() {
         var classroom = Classroom(idKey, name, desc, students)
 
         ref.child("users").child(uid).child("classes").child(idKey).setValue(classroom).addOnCompleteListener {
-            Toast.makeText(applicationContext, "User successfully registered!", Toast.LENGTH_LONG).show()
+            Toast.makeText(applicationContext, "Class successfully added!", Toast.LENGTH_LONG).show()
 
             finish()
         }
