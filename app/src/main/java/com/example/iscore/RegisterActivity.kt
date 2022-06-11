@@ -134,6 +134,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun getUsername(uid: String) {
         val database = Firebase.database
         val ref = database.getReference("users")
+
         val valueEventListener = object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 username = dataSnapshot.child("users").child(uid).getValue(User::class.java)!!.username;
@@ -143,6 +144,7 @@ class RegisterActivity : AppCompatActivity() {
                 Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
             }
         }
+
         ref.addValueEventListener(valueEventListener)
     }
 }
