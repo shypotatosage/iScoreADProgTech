@@ -11,8 +11,9 @@ class User (
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
         parcel.readString()!!,
-        parcel.readString()!!
-    ) {
+        parcel.readString()!!,
+    ){
+
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -24,6 +25,18 @@ class User (
     override fun describeContents(): Int {
         return 0
     }
+
+
+
+
+//    fun toMap(): Any {
+//        return mapOf(
+//            "uid" to id,
+//            "username" to username,
+//            "email" to email,
+//        )
+//    }
+
 
     companion object CREATOR : Parcelable.Creator<User> {
         override fun createFromParcel(parcel: Parcel): User {

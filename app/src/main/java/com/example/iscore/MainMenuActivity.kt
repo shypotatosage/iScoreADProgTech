@@ -20,34 +20,8 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
 
-        val user = FirebaseAuth.getInstance().currentUser
-        user?.let {
-            // Name, email address, and profile photo Url
-            val uid = user.uid
-            val database = Firebase.database
-            val myRef = database.getReference("users")
-
-            val ordersRef = myRef.child("users").child(uid)
-        val valueEventListener = object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val username = dataSnapshot.child("username").getValue()
-//                untuk mengambil data didalam data
-                val classcount = dataSnapshot.child("classes").childrenCount
-                val studentcount = dataSnapshot.child("student").childrenCount
-                   Log.d("DataBaseGetName", username.toString())
-
-                    hellomainmenu_textView.setText("Hello, " + username)
-                    classavailable_textView.setText(classcount.toString() + " Class Available")
-                    studentavailable_textView.setText(studentcount.toString()+ " Students Available")
-            }
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
-            }
-        }
-   ordersRef.addValueEventListener(valueEventListener)
-        }
-
         Listener()
+        check()
     }
 
     private fun Listener(){
@@ -55,6 +29,7 @@ class MainMenuActivity : AppCompatActivity() {
             val myIntent = Intent(this, LoginActivity::class.java)
             startActivity(myIntent)
         }
+
         updateprofile_button.setOnClickListener {
             val myIntent = Intent(this, UpdateProfileActivity::class.java)
 
@@ -71,6 +46,35 @@ class MainMenuActivity : AppCompatActivity() {
             val myIntent = Intent(this, StudentListActivity::class.java)
 
             startActivity(myIntent)
+        }
+    }
+
+    private fun check(){
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+            val uid = user.uid
+            val database = Firebase.database
+            val myRef = database.getReference("users")
+
+            val ordersRef = myRef.child("users").child(uid)
+            val valueEventListener = object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val username = dataSnapshot.child("username").getValue()
+//                untuk mengambil data didalam data
+                    val classcount = dataSnapshot.child("classes").childrenCount
+                    val studentcount = dataSnapshot.child("student").childrenCount
+                    Log.d("DataBaseGetName", username.toString())
+
+                    hellomainmenu_textView.setText("Hello, " + username)
+                    classavailable_textView.setText(classcount.toString() + " Class Available")
+                    studentavailable_textView.setText(studentcount.toString()+ " Students Available")
+                }
+                override fun onCancelled(databaseError: DatabaseError) {
+                    Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
+                }
+            }
+            ordersRef.addValueEventListener(valueEventListener)
         }
     }
 }

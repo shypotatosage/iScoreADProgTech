@@ -25,11 +25,6 @@ class RegisterActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         listener()
-
-        loginHereTV.setOnClickListener {
-            val intent = Intent(this,LoginActivity::class.java)
-            startActivity(intent)
-        }
     }
 
 
