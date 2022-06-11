@@ -2,6 +2,7 @@ package com.example.iscore
 
 import Model.Classroom
 import Model.Student
+import android.location.GnssAntennaInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,6 +16,7 @@ class AddClassActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_class)
+        listener()
     }
 
     private fun listener() {
