@@ -1,21 +1,16 @@
 package com.example.iscore
 
 import Database.GlobalVar
-import Model.Classroom
 import Model.Score
 import Model.Student
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.widget.Toast
 import androidx.core.view.isEmpty
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.activity_add_class.*
 import kotlinx.android.synthetic.main.activity_add_student.*
-import kotlinx.android.synthetic.main.activity_student_list.*
 
 class AddStudentActivity : AppCompatActivity() {
 
