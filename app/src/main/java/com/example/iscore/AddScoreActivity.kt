@@ -12,9 +12,16 @@ class AddScoreActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_score)
 
+        listener()
+    }
+
+    private fun listener() {
         addScoreBackFAB.setOnClickListener {
-            val intent = Intent(this,IndividualStudentActivity::class.java)
-            startActivity(intent)
+            finish()
+        }
+
+        addScoreBtn.setOnClickListener {
+
         }
     }
 }
