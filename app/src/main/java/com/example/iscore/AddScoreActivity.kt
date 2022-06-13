@@ -11,7 +11,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_add_score.*
-import kotlinx.android.synthetic.main.activity_add_score.addStudentNameTIL
 import kotlinx.android.synthetic.main.activity_add_student.*
 import kotlinx.android.synthetic.main.activity_individual_student.*
 import kotlinx.android.synthetic.main.activity_register.*
@@ -41,7 +40,7 @@ class AddScoreActivity : AppCompatActivity() {
                 addScoreScoreTIL.error = ""
             }
 
-            if (addStudentNameTIL.isEmpty()) {
+            if (addScoreNameTIL.isEmpty()) {
                 addStudentAddressTIL.error = "Address is required."
                 scoreValid = false
             } else {
@@ -56,7 +55,7 @@ class AddScoreActivity : AppCompatActivity() {
             }
 
             if (scoreValid) {
-                saveData(user!!.uid, addStudentNameTIL.editText!!.text.toString(), addStudentAddressTIL.editText!!.text.toString(), addStudentPhoneNumberTIL.editText!!.text.toString(), GlobalVar.classArrayList[position].id)
+//                saveData(user!!.uid, addStudentNameTIL.editText!!.text.toString(), addStudentAddressTIL.editText!!.text.toString(), addStudentPhoneNumberTIL.editText!!.text.toString(), GlobalVar.classArrayList[position].id)
             }
         }
     }
