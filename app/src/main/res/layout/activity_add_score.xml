@@ -71,7 +71,7 @@
                     app:srcCompat="@drawable/aaa1__1_" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/addStudentNameTIL"
+                    android:id="@+id/addScoreNameTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="32dp"
