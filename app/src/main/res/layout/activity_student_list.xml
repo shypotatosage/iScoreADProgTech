@@ -11,6 +11,33 @@
         android:id="@+id/addStudentofclassFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/editclassFAB"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/editclassFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/deleteclassFAB"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        app:backgroundTint="#FF9800"
+        app:srcCompat="@drawable/ic_baseline_person_24" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteclassFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
@@ -18,6 +45,7 @@
         android:layout_marginRight="18dp"
         android:layout_marginBottom="18dp"
         android:clickable="true"
+        app:backgroundTint="#FF0000"
         app:srcCompat="@drawable/ic_baseline_person_24" />
 
     <ScrollView
