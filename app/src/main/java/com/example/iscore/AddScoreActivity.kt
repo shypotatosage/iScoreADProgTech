@@ -11,9 +11,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_add_score.*
-import kotlinx.android.synthetic.main.activity_add_student.*
-import kotlinx.android.synthetic.main.activity_individual_student.*
-import kotlinx.android.synthetic.main.activity_register.*
 
 class AddScoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,24 +31,19 @@ class AddScoreActivity : AppCompatActivity() {
             val user = Firebase.auth.currentUser
 
             if(addScoreScoreTIL.isEmpty()) {
-                addScoreScoreTIL.error = "Name is required."
+                addScoreScoreTIL.error = "Score is required."
                 scoreValid = false
             } else if (score < 0 || score > 100) {
+                addScoreScoreTIL.error = "Score must be between 0 - 100"
+            } else {
                 addScoreScoreTIL.error = ""
             }
 
             if (addScoreNameTIL.isEmpty()) {
-                addStudentAddressTIL.error = "Address is required."
+                addScoreNameTIL.error = "Name is required."
                 scoreValid = false
             } else {
-                addStudentAddressTIL.error = ""
-            }
-
-            if (addStudentPhoneNumberTIL.isEmpty()) {
-                addStudentPhoneNumberTIL.error = "Phone Number is required"
-                scoreValid = false
-            } else {
-                addStudentPhoneNumberTIL.error = ""
+                addScoreNameTIL.error = ""
             }
 
             if (scoreValid) {
