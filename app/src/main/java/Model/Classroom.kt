@@ -13,7 +13,9 @@ class Classroom (
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
-        TODO("students")
+        arrayListOf<Student>().apply {
+            parcel.readList(this, Student::class.java.classLoader)
+        }
     ) {
     }
 
