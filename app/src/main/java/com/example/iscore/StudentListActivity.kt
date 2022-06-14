@@ -123,7 +123,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
     }
 
     override fun onCardClick(position: Int) {
-        val myIntent = Intent(this, StudentListActivity::class.java).apply {
+        val myIntent = Intent(this, IndividualStudentActivity::class.java).apply {
             putExtra("Class Position", classPosition)
             putExtra("Student Position", position)
         }
