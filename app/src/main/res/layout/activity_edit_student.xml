@@ -88,7 +88,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/editStudentIDTIL"
+                    android:id="@+id/editStudentNoTelpTIL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="24dp"
@@ -100,7 +100,7 @@
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FFFFFF"
-                        android:hint="Student's ID" />
+                        android:hint="Student's Phone Number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
@@ -114,9 +114,9 @@
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/editStudentIDTIL"
-                    app:layout_constraintStart_toStartOf="@+id/editStudentIDTIL"
-                    app:layout_constraintTop_toBottomOf="@+id/editStudentIDTIL" />
+                    app:layout_constraintEnd_toEndOf="@+id/editStudentNoTelpTIL"
+                    app:layout_constraintStart_toStartOf="@+id/editStudentNoTelpTIL"
+                    app:layout_constraintTop_toBottomOf="@+id/editStudentNoTelpTIL" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
