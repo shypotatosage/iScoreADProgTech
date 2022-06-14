@@ -1,21 +1,33 @@
 package com.example.iscore
 
+import Database.GlobalVar
 import Model.Score
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.view.isEmpty
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_add_score.*
 
 class AddScoreActivity : AppCompatActivity() {
+
+    private var studentPosition: Int = -1
+    private var classPosition: Int = -1
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_score)
 
+        GetIntent()
         listener()
+    }
+
+    private fun GetIntent() {
+        studentPosition  = intent.getIntExtra("Student Position", -1)
+        classPosition  = intent.getIntExtra("Class Position", -1)
     }
 
     private fun listener() {
@@ -24,6 +36,7 @@ class AddScoreActivity : AppCompatActivity() {
         }
 
         addScoreBtn.setOnClickListener {
+            val user = Firebase.auth.currentUser
             var scoreValid = true
             var score = addScoreScoreTIL.editText!!.text.toString().toInt()
 
@@ -44,7 +57,7 @@ class AddScoreActivity : AppCompatActivity() {
             }
 
             if (scoreValid) {
-//                saveData(user!!.uid, addStudentNameTIL.editText!!.text.toString(), addStudentAddressTIL.editText!!.text.toString(), addStudentPhoneNumberTIL.editText!!.text.toString(), GlobalVar.classArrayList[position].id)
+                saveData(user!!.uid, GlobalVar.classArrayList[classPosition].students[studentPosition].id, addScoreNameTIL.editText!!.text.toString(), addScoreScoreTIL.editText!!.text.toString().toInt(), addScoreNoteTIL.editText!!.text.toString(), GlobalVar.classArrayList[classPosition].id)
             }
         }
     }
