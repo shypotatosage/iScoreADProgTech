@@ -37,6 +37,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
         GetIntent()
         setAdapter()
         getData()
+        setData()
         listener()
     }
 
@@ -45,6 +46,10 @@ class StudentListActivity : AppCompatActivity(), CardListener {
 
         setAdapter()
         getData()
+    }
+
+    private fun setData() {
+        studentListTV.text = "Students Of " + GlobalVar.classArrayList[classPosition].name
     }
 
     private fun GetIntent() {
@@ -62,6 +67,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
             }
             startActivity(intent)
         }
+
         deleteclassFAB.setOnClickListener {
             val user = FirebaseAuth.getInstance().currentUser
             user?.let {
@@ -73,6 +79,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
                 myRef.child("users").child(uid).child("classes").child(cid).removeValue()
             }
         }
+
         addStudentofclassFAB.setOnClickListener {
             val intent = Intent(this,AddStudentActivity::class.java).apply {
                 putExtra("Position", classPosition)

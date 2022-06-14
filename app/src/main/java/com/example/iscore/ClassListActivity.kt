@@ -1,7 +1,6 @@
 package com.example.iscore
 
 import Adapter.ClassListRVAdapter
-import Adapter.ListDataRVAdapter
 import Database.GlobalVar
 import Interface.CardListener
 import Model.Classroom
@@ -10,7 +9,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -18,7 +16,6 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_class_list.*
-import kotlinx.android.synthetic.main.classlist_card.*
 
 class ClassListActivity : AppCompatActivity(), CardListener {
 
