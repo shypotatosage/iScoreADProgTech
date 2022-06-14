@@ -2,6 +2,8 @@ package com.example.iscore
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -15,23 +17,17 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_main_menu.*
+import java.io.File
 import java.io.IOException
 import java.util.*
 
 
 class MainMenuActivity : AppCompatActivity() {
-    private val PICK_IMAGE_REQUEST = 71
-    private var filePath: Uri? = null
-    private var firebaseStore: FirebaseStorage? = null
-    private var storageReference: StorageReference? = null
-    lateinit var imagePreview: ImageView
-    lateinit var btn_choose_image: Button
-    lateinit var btn_upload_image: Button
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -41,10 +37,6 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun Listener(){
-        mainmenu_imageView.setOnClickListener{
-            launchGallery()
-            uploadImage()
-        }
         mainMenuFAB.setOnClickListener {
             val myIntent = Intent(this, LoginActivity::class.java)
             startActivity(myIntent)
@@ -78,43 +70,7 @@ class MainMenuActivity : AppCompatActivity() {
         }
     }
 
-    private fun launchGallery() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
-    }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if(data == null || data.data == null){
-                return
-            }
-
-            filePath = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
-                mainmenu_imageView.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun uploadImage(){
-//        Toast.makeText(this, filePath.toString(), Toast.LENGTH_SHORT).show()
-
-        if(filePath != null){
-//            Toast.makeText(this, filePath.toString(), Toast.LENGTH_SHORT).show()
-//            Toast.makeText(this, "Hello", Toast.LENGTH_SHORT).show()
-            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
-            val uploadTask = ref?.putFile(filePath!!)
-
-        }else{
-            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
-        }
-    }
 
     private fun check(){
         val user = FirebaseAuth.getInstance().currentUser
@@ -134,6 +90,16 @@ class MainMenuActivity : AppCompatActivity() {
 
                     hellomainmenu_textView.setText("Hello, " + username)
                     classavailable_textView.setText(classcount.toString() + " Class Available")
+//                    myRef.child("users").child(uid).child("image").setValue(filename)
+                    val imageName = dataSnapshot.child("image").getValue()
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName.jpg")
+                    val localfile = File.createTempFile("tempImage", "jpg")
+                    storageRef.getFile(localfile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                        mainmenu_imageView.setImageURI(bitmap)
+                    }.addOnFailureListener{
+//                        Toast.makeText(this,"Failed to retrieve the image",Toast.LENGTH_SHORT).show()
+                    }
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
                     Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
@@ -143,3 +109,4 @@ class MainMenuActivity : AppCompatActivity() {
         }
     }
 }
+

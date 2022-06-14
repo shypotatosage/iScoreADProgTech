@@ -7,8 +7,10 @@ class User (
     var id: String = "",
     var username: String = "",
     var email: String = "",
+    var image: String = "",
 ): Subject(id, username), Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
@@ -20,6 +22,7 @@ class User (
         parcel.writeString(id)
         parcel.writeString(username)
         parcel.writeString(email)
+        parcel.writeString(image)
     }
 
     override fun describeContents(): Int {
