@@ -53,6 +53,7 @@ class RegisterActivity : AppCompatActivity() {
             val uname = usernameTIL.editText?.text.toString().trim();
             val email = emailTIL.editText?.text.toString().trim();
             val password = passwordTIL.editText?.text.toString().trim();
+            val image = ""
 
             if (uname.isEmpty()) {
                 usernameTIL.error = "Username is required."
@@ -91,7 +92,7 @@ class RegisterActivity : AppCompatActivity() {
 
                             saveData(
                                 user!!.uid, usernameTIL.editText!!.text.toString().trim(),
-                                user!!.email!!)
+                                user!!.email!!, image)
 
                             val myIntent = Intent(this, LoginActivity::class.java)
 
@@ -115,11 +116,11 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveData(userID: String, uname: String, email: String) {
+    private fun saveData(userID: String, uname: String, email: String, image: String) {
         val database = Firebase.database
         val ref = database.getReference("users")
 
-        var usr = User(userID, uname, email)
+        var usr = User(userID, uname, email, image)
 
         ref.child("users").child(userID).setValue(usr).addOnCompleteListener {
             Toast.makeText(applicationContext, "User successfully registered!", Toast.LENGTH_LONG).show()

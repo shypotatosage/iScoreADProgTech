@@ -1,16 +1,30 @@
 package com.example.iscore
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
+import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_main_menu.*
+import java.io.File
+import java.io.IOException
+import java.util.*
 
 
 class MainMenuActivity : AppCompatActivity() {
@@ -56,6 +70,8 @@ class MainMenuActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun check(){
         val user = FirebaseAuth.getInstance().currentUser
         user?.let {
@@ -74,6 +90,16 @@ class MainMenuActivity : AppCompatActivity() {
 
                     hellomainmenu_textView.setText("Hello, " + username)
                     classavailable_textView.setText(classcount.toString() + " Class Available")
+//                    myRef.child("users").child(uid).child("image").setValue(filename)
+                    val imageName = dataSnapshot.child("image").getValue()
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName.jpg")
+                    val localfile = File.createTempFile("tempImage", "jpg")
+                    storageRef.getFile(localfile).addOnSuccessListener {
+                        val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
+                        mainmenu_imageView.setImageURI(bitmap)
+                    }.addOnFailureListener{
+//                        Toast.makeText(this,"Failed to retrieve the image",Toast.LENGTH_SHORT).show()
+                    }
                 }
                 override fun onCancelled(databaseError: DatabaseError) {
                     Log.d("Data", databaseError.getMessage()) //Don't ignore errors!
@@ -83,3 +109,4 @@ class MainMenuActivity : AppCompatActivity() {
         }
     }
 }
+
