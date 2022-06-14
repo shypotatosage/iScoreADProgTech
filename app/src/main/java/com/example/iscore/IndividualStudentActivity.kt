@@ -1,9 +1,15 @@
 package com.example.iscore
 
 import Database.GlobalVar
+import Model.Score
+import Model.Student
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_individual_student.*
@@ -60,6 +66,24 @@ class IndividualStudentActivity : AppCompatActivity() {
         deletestudent_button.setOnClickListener {
             val database = Firebase.database
             val ref = database.getReference("users").child("users").child(GlobalVar.user.id).child("classes").child(GlobalVar.classArrayList[classPosition].id).child("students")
+
+            ref.orderByChild("id").equalTo(GlobalVar.classArrayList[classPosition].students[studentPosition].id).addListenerForSingleValueEvent(object:
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()) {
+                        for (classSnapshot in snapshot.children) {
+                            classSnapshot.ref.removeValue()
+                        }
+                        finish()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d("Data", error.getMessage()) //Don't ignore errors!
+                }
+            })
+
+
         }
 
         addscore_button.setOnClickListener {
