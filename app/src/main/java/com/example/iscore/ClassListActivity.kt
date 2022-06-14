@@ -31,13 +31,13 @@ class ClassListActivity : AppCompatActivity(), CardListener {
         listener()
     }
 
-    override fun onResume() {
+        override fun onResume() {
         super.onResume()
 
         setAdapter()
         getData()
     }
-
+//
     private fun listener() {
         addclassFAB.setOnClickListener {
             val intent = Intent(this,AddClassActivity::class.java)
@@ -48,7 +48,7 @@ class ClassListActivity : AppCompatActivity(), CardListener {
             finish()
         }
     }
-
+//
     private fun getData() {
         val database = Firebase.database
         val ref = database.getReference("users").child("users").child(GlobalVar.user.id).child("classes")
@@ -77,13 +77,13 @@ class ClassListActivity : AppCompatActivity(), CardListener {
 
         })
     }
-
+//
     private fun setAdapter() {
         adapter = ClassListRVAdapter(classArrayList, this)
         classList_recyclerView.layoutManager = LinearLayoutManager(this)
         classList_recyclerView.adapter = adapter
     }
-
+//
     override fun onCardClick(position: Int) {
         val myIntent = Intent(this, StudentListActivity::class.java).apply {
             putExtra("Position", position)
