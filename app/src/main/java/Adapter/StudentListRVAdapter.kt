@@ -16,16 +16,16 @@ class StudentListRVAdapter(val listClass: ArrayList<Student>, val cardListener: 
     class viewHolder (itemView: View, val cardListener1: CardListener): RecyclerView.ViewHolder(itemView){
 
         fun setData(data: Student){
-            itemView.classNameTV.text = data.name
-            itemView.classStudentTV.text = data.students.size.toString() + " Students Enrolled"
-
-            if (data.imageUri!!.isNotEmpty()) {
-                itemView.classImageView.setImageURI(Uri.parse(data.imageUri))
-            }
-
-            itemView.setOnClickListener {
-                cardListener1.onCardClick(adapterPosition)
-            }
+//            itemView.classNameTV.text = data.name
+//            itemView.classStudentTV.text = data.students.size.toString() + " Students Enrolled"
+//
+//            if (data.imageUri!!.isNotEmpty()) {
+//                itemView.classImageView.setImageURI(Uri.parse(data.imageUri))
+//            }
+//
+//            itemView.setOnClickListener {
+//                cardListener1.onCardClick(adapterPosition)
+//            }
         }
     }
 
