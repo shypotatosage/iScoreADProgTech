@@ -57,7 +57,7 @@ class EditStudentActivity : AppCompatActivity() {
                 myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("name").setValue(name).addOnSuccessListener {
                     Toast.makeText(this,"Data Updated", Toast.LENGTH_SHORT).show()
                 }
-
+                finish()
             }
         }
     }
