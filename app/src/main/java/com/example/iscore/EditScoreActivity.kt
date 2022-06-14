@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.android.synthetic.main.activity_edit_class.*
 import kotlinx.android.synthetic.main.activity_edit_score.*
 
 class EditScoreActivity : AppCompatActivity() {
@@ -27,7 +26,7 @@ class EditScoreActivity : AppCompatActivity() {
         editScoreBackFAB.setOnClickListener {
             finish()
         }
-        editScoreBtn.setOnClickListener {
+        updateScoreBtn.setOnClickListener {
             val name = editScoreNameTIL.editText?.text.toString().trim();
             val note = editScoreNoteTIL.editText?.text.toString().trim();
             val score = editScoreScoreTIL.editText?.text.toString().trim();

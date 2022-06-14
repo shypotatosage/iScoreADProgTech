@@ -20,11 +20,11 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/editScoreTV"
+                    android:id="@+id/ScoreDataTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="68dp"
-                    android:text="Edit Score"
+                    android:text="Score Data"
                     android:textColor="#06113C"
                     android:textSize="32sp"
                     android:textStyle="bold"
@@ -33,22 +33,34 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
-                    android:id="@+id/editScoreBtn"
+                    android:id="@+id/updateScoreBtn"
                     android:layout_width="340dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="36dp"
-                    android:layout_marginBottom="32dp"
+                    android:layout_marginTop="25dp"
                     android:backgroundTint="#FF8C32"
-                    android:text="EDIT SCORE"
+                    android:text="UPDATE"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:cornerRadius="7.5dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.492"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editScoreNoteTIL"
-                    app:layout_constraintVertical_bias="1.0" />
+                    app:layout_constraintTop_toBottomOf="@+id/editScoreNoteTIL" />
+
+                <Button
+                    android:id="@+id/deleteScoreBtn"
+                    android:layout_width="340dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:backgroundTint="#F44336"
+                    android:text="DELETE"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:cornerRadius="7.5dp"
+                    app:layout_constraintEnd_toEndOf="@+id/updateScoreBtn"
+                    app:layout_constraintHorizontal_bias="0.492"
+                    app:layout_constraintStart_toStartOf="@+id/updateScoreBtn"
+                    app:layout_constraintTop_toBottomOf="@+id/updateScoreBtn" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/editScoreBackFAB"
@@ -69,7 +81,7 @@
                     android:layout_marginTop="28dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editScoreTV"
+                    app:layout_constraintTop_toBottomOf="@+id/ScoreDataTV"
                     app:srcCompat="@drawable/aaa1__1_" />
 
                 <com.google.android.material.textfield.TextInputLayout
