@@ -107,9 +107,12 @@ class UpdateProfileActivity : AppCompatActivity() {
 //                        .getCredential(email, password)
 //
                     //pass tidak bisa terupdate jika email terganti, jika email tetap pass terupdate
+//                Toast.makeText(this,password,Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this,email,Toast.LENGTH_SHORT).show()
                     user.updatePassword(password)
                     user.updateEmail(email)
                     val database = Firebase.database
+//                Toast.makeText(this,uid,Toast.LENGTH_SHORT).show()
                     val myRef = FirebaseDatabase.getInstance().getReference("users")
                     val user =  mapOf<String,String>(
                         "uid" to uid,
