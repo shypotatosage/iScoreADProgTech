@@ -5,6 +5,7 @@ import Adapter.ListDataRVAdapter
 import Database.GlobalVar
 import Interface.CardListener
 import Model.Classroom
+import Model.Student
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -57,7 +58,17 @@ class ClassListActivity : AppCompatActivity(), CardListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
                     for (classSnapshot in snapshot.children) {
-                        val classroom = classSnapshot.getValue(Classroom::class.java)
+                        var className = classSnapshot.child("name").getValue()
+                        var classDesc = classSnapshot.child("desc").getValue()
+                        var classID = classSnapshot.child("id").getValue()
+                        var imageUri = classSnapshot.child("imageUri").getValue()
+
+                        var students = arrayListOf<Student>()
+
+                        var classroom = Classroom(classID.toString(),
+                            className.toString(), classDesc.toString(), students)
+
+                        classroom.imageUri = imageUri.toString()
 
                         classArrayList.add(classroom!!)
                     }
