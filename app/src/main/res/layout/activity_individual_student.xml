@@ -34,12 +34,12 @@
                 android:id="@+id/namaindividualstudent_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="85dp"
                 android:text="Micheila Jiemesha"
                 android:textColor="#000000"
                 android:textSize="25dp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,7 +51,8 @@
                 android:text="Jl. Citraland Surabaya Blok A"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/namaindividualstudent_textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/namaindividualstudent_textView" />
 
             <TextView
@@ -62,7 +63,8 @@
                 android:text="0888888888888"
                 android:textColor="#000000"
                 android:textSize="15sp"
-                app:layout_constraintStart_toStartOf="@+id/alamatindividualstudent_textView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alamatindividualstudent_textView" />
 
             <androidx.cardview.widget.CardView
@@ -174,8 +176,10 @@
                 android:layout_width="160dp"
                 android:layout_height="250dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="32dp"
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/checkscore_CardView"
                 app:layout_constraintStart_toStartOf="@+id/checkscore_CardView"
                 app:layout_constraintTop_toBottomOf="@+id/checkscore_CardView">
@@ -227,8 +231,10 @@
                 android:layout_width="160dp"
                 android:layout_height="250dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="32dp"
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="25dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/addscore_CardView"
                 app:layout_constraintStart_toStartOf="@+id/addscore_CardView"
                 app:layout_constraintTop_toBottomOf="@+id/addscore_CardView">

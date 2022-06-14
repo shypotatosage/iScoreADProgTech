@@ -3,7 +3,6 @@ package com.example.iscore
 import Adapter.ClassListRVAdapter
 import Adapter.StudentListRVAdapter
 import Database.GlobalVar
-import Database.GlobalVar.Companion.classArrayList
 import Interface.CardListener
 import Model.Classroom
 import Model.Score
@@ -75,7 +74,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
                 val uid = user.uid
                 val database = Firebase.database
                 val myRef = database.getReference("users")
-                val cid = classArrayList[classPosition].id
+                val cid = GlobalVar.classArrayList[classPosition].id
                 myRef.child("users").child(uid).child("classes").child(cid).removeValue()
             }
         }

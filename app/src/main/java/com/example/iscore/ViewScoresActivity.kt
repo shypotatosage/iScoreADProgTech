@@ -75,9 +75,9 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
                     }
 
                     GlobalVar.classArrayList[classPosition].students[studentPosition].scores = scoreArrayList
-                    scoreArrayList = arrayListOf()
 
                     adapter.notifyDataSetChanged()
+                    scoreArrayList = arrayListOf()
                 }
             }
 
