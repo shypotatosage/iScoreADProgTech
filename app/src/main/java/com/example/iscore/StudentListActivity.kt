@@ -10,6 +10,7 @@ import Model.Student
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
@@ -107,7 +108,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                Log.d("Data", error.getMessage()) //Don't ignore errors!
             }
 
         })
