@@ -4,11 +4,13 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class Score (
+    var id: String,
     var name: String,
     var value: Int,
     var note: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readString()!!,
         parcel.readString()!!,
         parcel.readInt(),
         parcel.readString()!!
@@ -16,6 +18,7 @@ class Score (
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(id)
         parcel.writeString(name)
         parcel.writeInt(value)
         parcel.writeString(note)
