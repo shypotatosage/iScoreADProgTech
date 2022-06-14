@@ -30,6 +30,7 @@ class StudentListActivity : AppCompatActivity() {
         studentListFAB.setOnClickListener {
             finish()
         }
+
         editclassFAB.setOnClickListener {
             val intent = Intent(this,EditClassActivity::class.java).apply {
                 putExtra("Position", position)
