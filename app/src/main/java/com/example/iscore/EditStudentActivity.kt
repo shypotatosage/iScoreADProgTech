@@ -12,8 +12,7 @@ class EditStudentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_student)
 
         editStudentBackFAB.setOnClickListener {
-            val intent = Intent(this,IndividualStudentActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }
