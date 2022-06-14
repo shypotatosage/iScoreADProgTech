@@ -39,7 +39,7 @@
                     android:layout_marginTop="36dp"
                     android:layout_marginBottom="32dp"
                     android:backgroundTint="#FF8C32"
-                    android:text="ADD SCORE"
+                    android:text="EDIT SCORE"
                     android:textSize="15sp"
                     android:textStyle="bold"
                     app:cornerRadius="7.5dp"
@@ -51,7 +51,7 @@
                     app:layout_constraintVertical_bias="1.0" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/editScoreFAB"
+                    android:id="@+id/editScoreBackFAB"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
