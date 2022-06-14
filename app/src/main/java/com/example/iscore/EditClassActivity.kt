@@ -2,6 +2,7 @@ package com.example.iscore
 
 import Database.GlobalVar
 import android.content.Intent
+import android.icu.text.Transliterator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,13 +16,17 @@ import kotlinx.android.synthetic.main.activity_update_profile.*
 
 class EditClassActivity : AppCompatActivity() {
 
-    private var position: Int = 1
+    private var position: Int = -1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_class)
-
+        GetIntent()
         listener()
+    }
+
+    private fun GetIntent() {
+        position  = intent.getIntExtra("Position", -1)
     }
 
     private fun listener() {

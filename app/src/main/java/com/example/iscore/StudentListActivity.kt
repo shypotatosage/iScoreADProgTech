@@ -3,6 +3,7 @@ package com.example.iscore
 import Adapter.ClassListRVAdapter
 import Adapter.StudentListRVAdapter
 import Database.GlobalVar
+import Database.GlobalVar.Companion.classArrayList
 import Interface.CardListener
 import Model.Classroom
 import Model.Score
@@ -12,12 +13,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_class_list.*
+import kotlinx.android.synthetic.main.activity_main_menu.*
 import kotlinx.android.synthetic.main.activity_student_list.*
 
 class StudentListActivity : AppCompatActivity(), CardListener {
@@ -54,9 +57,8 @@ class StudentListActivity : AppCompatActivity(), CardListener {
 
         editclassFAB.setOnClickListener {
             val intent = Intent(this,EditClassActivity::class.java).apply {
-                putExtra("Position", position)
+                putExtra("Position", classPosition)
             }
-
             startActivity(intent)
         }
         deleteclassFAB.setOnClickListener {
@@ -66,7 +68,7 @@ class StudentListActivity : AppCompatActivity(), CardListener {
                 val uid = user.uid
                 val database = Firebase.database
                 val myRef = database.getReference("users")
-                val cid = classArrayList[position].id
+                val cid = classArrayList[classPosition].id
                 myRef.child("users").child(uid).child("classes").child(cid).removeValue()
             }
         }
