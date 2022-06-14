@@ -23,7 +23,7 @@
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/materialCardView"
             android:layout_width="330dp"
-            android:layout_height="160dp"
+            android:layout_height="150dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="#FFBC84"
             app:cardCornerRadius="25dp"
@@ -62,18 +62,6 @@
                     android:textSize="15sp"
                     app:layout_constraintStart_toStartOf="@+id/classNameTV"
                     app:layout_constraintTop_toBottomOf="@+id/classNameTV" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/viewClassBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginBottom="10dp"
-                    android:backgroundTint="#06113C"
-                    android:text="View"
-                    app:cornerRadius="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
