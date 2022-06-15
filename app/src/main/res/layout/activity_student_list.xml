@@ -81,7 +81,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/studentListTV"
-                app:srcCompat="@drawable/bookapple" />
+                app:srcCompat="@drawable/students" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/studentListFAB"

@@ -13,6 +13,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/classImageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="-15dp"
+                android:translationZ="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/studentofclass_CardView"
+                app:layout_constraintTop_toTopOf="@+id/studentofclass_CardView"
+                app:srcCompat="@drawable/littlepeoples__1_" />
+
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/studentofclass_CardView"
                 android:layout_width="330dp"

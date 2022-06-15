@@ -156,7 +156,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/addscore_textView"
-                        app:srcCompat="@drawable/feedback_icon_1" />
+                        app:srcCompat="@drawable/addscore" />
 
                     <Button
                         android:id="@+id/addscore_button"
@@ -209,11 +209,12 @@
                         android:id="@+id/editstudent_imageView"
                         android:layout_width="100dp"
                         android:layout_height="100dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="10dp"
                         app:layout_constraintEnd_toEndOf="@+id/editstudent_textView"
                         app:layout_constraintStart_toStartOf="@+id/editstudent_textView"
                         app:layout_constraintTop_toBottomOf="@+id/editstudent_textView"
-                        app:srcCompat="@drawable/feedback_icon_1" />
+                        app:srcCompat="@drawable/editscore" />
 
                     <Button
                         android:id="@+id/editstudent_button"
@@ -270,7 +271,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/deletestudent_textView"
-                        app:srcCompat="@drawable/feedback_icon_1" />
+                        app:srcCompat="@drawable/trash1" />
 
                     <Button
                         android:id="@+id/deletestudent_button"

@@ -55,7 +55,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/addClassTV"
-                    app:srcCompat="@drawable/littlepeoples__1_" />
+                    app:srcCompat="@drawable/bookapple" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/addClassBackFAB"
