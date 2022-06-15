@@ -123,7 +123,6 @@ class UpdateProfileActivity : AppCompatActivity() {
                     myRef.child("users").child(uid).child("email").setValue(email)
                     myRef.child("users").child(uid).child("username").setValue(uname).addOnSuccessListener {
                         Toast.makeText(this,"Data Updated",Toast.LENGTH_SHORT).show()
-                        Toast.makeText(this,filename,Toast.LENGTH_SHORT).show()
                     }
             }
         }
