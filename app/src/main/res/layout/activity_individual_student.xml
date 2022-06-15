@@ -67,7 +67,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/alamatindividualstudent_textView" />
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/checkscore_CardView"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
@@ -76,7 +76,9 @@
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/notelpindividualstudent_textView">
+                app:layout_constraintTop_toBottomOf="@+id/notelpindividualstudent_textView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -115,13 +117,13 @@
                         android:text="View"
                         app:cornerRadius="12dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/checkscore_imageView"
-                        app:layout_constraintStart_toStartOf="@+id/checkscore_imageView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/checkscore_imageView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/addscore_CardView"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
@@ -129,7 +131,9 @@
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/checkscore_CardView">
+                app:layout_constraintTop_toTopOf="@+id/checkscore_CardView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -173,9 +177,9 @@
                         app:layout_constraintTop_toBottomOf="@+id/addscore_imageView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/editstudent_CardView"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
@@ -186,7 +190,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/checkscore_CardView"
                 app:layout_constraintStart_toStartOf="@+id/checkscore_CardView"
-                app:layout_constraintTop_toBottomOf="@+id/checkscore_CardView">
+                app:layout_constraintTop_toBottomOf="@+id/checkscore_CardView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -226,14 +232,14 @@
                         android:text="EDIT"
                         app:cornerRadius="12dp"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="@+id/editstudent_imageView"
-                        app:layout_constraintStart_toStartOf="@+id/editstudent_imageView"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/editstudent_imageView" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
 
-            <androidx.cardview.widget.CardView
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/deletestudent_CardView"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
@@ -244,7 +250,9 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/addscore_CardView"
                 app:layout_constraintStart_toStartOf="@+id/addscore_CardView"
-                app:layout_constraintTop_toBottomOf="@+id/addscore_CardView">
+                app:layout_constraintTop_toBottomOf="@+id/addscore_CardView"
+                app:strokeColor="#80202020"
+                app:strokeWidth="0.05dp">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -288,7 +296,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/deletestudent_imageView" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
+            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
