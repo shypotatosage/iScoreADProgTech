@@ -36,7 +36,12 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
         setAdapter()
         getData()
         listener()
-        adapter.notifyDataSetChanged()
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        finish()
     }
 
     override fun onResume() {
@@ -45,9 +50,8 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
         scoreArrayList = arrayListOf()
         GetIntent()
         setAdapter()
-        getData2()
         listener()
-        adapter.notifyDataSetChanged()
+        getData()
     }
 
     private fun GetIntent() {
@@ -82,43 +86,9 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
                     }
 
                     GlobalVar.classArrayList[classPosition].students[studentPosition].scores = scoreArrayList
-
-                    Toast.makeText(applicationContext, "" + scoreArrayList.size, Toast.LENGTH_SHORT).show()
                     scoreArrayList = arrayListOf()
+
                     adapter.notifyDataSetChanged()
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("Data", error.getMessage()) //Don't ignore errors!
-            }
-
-        })
-    }
-
-    private fun getData2() {
-        val database = Firebase.database
-        val ref = database.getReference("users").child("users").child(GlobalVar.user.id).child("classes").child(
-            GlobalVar.classArrayList[classPosition].id).child("students").child(GlobalVar.classArrayList[classPosition].students[studentPosition].id).child("scores")
-
-        ref.addValueEventListener(object: ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    for (classSnapshot in snapshot.children) {
-                        var scoreName = classSnapshot.child("name").getValue()
-                        var scoreNote = classSnapshot.child("note").getValue()
-                        var scoreID = classSnapshot.child("id").getValue()
-                        var scoreValue = classSnapshot.child("value").getValue()
-
-                        var score = Score(scoreID.toString(), scoreName.toString(),
-                            scoreValue.toString().toInt(), scoreNote.toString())
-
-                        scoreArrayList.add(score!!)
-                    }
-
-                    GlobalVar.classArrayList[classPosition].students[studentPosition].scores = scoreArrayList
-
-                    adapter.notifyDataSetChanged()ith
                 }
             }
 

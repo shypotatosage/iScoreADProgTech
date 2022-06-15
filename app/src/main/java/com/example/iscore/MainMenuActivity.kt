@@ -36,10 +36,6 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun Listener(){
-        mainMenuFAB.setOnClickListener {
-            val myIntent = Intent(this, LoginActivity::class.java)
-            startActivity(myIntent)
-        }
 
         updateprofile_button.setOnClickListener {
             val myIntent = Intent(this, UpdateProfileActivity::class.java)

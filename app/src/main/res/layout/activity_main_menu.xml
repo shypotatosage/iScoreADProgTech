@@ -16,28 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/mainMenuFAB"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="337dp"
-                android:layout_marginBottom="59dp"
-                android:clickable="true"
-                app:backgroundTint="#FF8C32"
-                app:layout_constraintBottom_toTopOf="@+id/hellomainmenu_textView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_arrowback" />
-
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="200dp"
-                android:layout_marginTop="85dp"
+                android:layout_marginTop="75dp"
                 app:cardCornerRadius="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,14 +31,16 @@
                     android:id="@+id/mainmenu_imageView"
                     android:layout_width="150dp"
                     android:layout_height="150dp"
+                    android:scaleType="centerCrop"
                     app:srcCompat="@drawable/teacherdummy" />
 
             </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/hellomainmenu_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="175dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
                 android:text="Hello, User"
                 android:textColor="#000000"
                 android:textSize="30dp"
@@ -68,7 +54,7 @@
 
             <TextView
                 android:id="@+id/welcomemainmenu_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:text="Welcome Back!"
                 app:layout_constraintEnd_toEndOf="@+id/hellomainmenu_textView"

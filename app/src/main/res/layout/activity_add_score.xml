@@ -99,7 +99,8 @@
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:background="#FFFFFF"
-                        android:hint="Score" />
+                        android:hint="Score"
+                        android:inputType="number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout

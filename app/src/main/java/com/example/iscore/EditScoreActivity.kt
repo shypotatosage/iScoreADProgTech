@@ -45,6 +45,8 @@ class EditScoreActivity : AppCompatActivity() {
                 val sid = GlobalVar.classArrayList[classPosition].students[studentPosition].id
                 val scoreid = GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].id
                 myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("scores").child(scoreid).removeValue()
+
+                finish()
             }
         }
 

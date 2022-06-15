@@ -35,8 +35,7 @@ GetIntent()
 
     private fun listener() {
         addStudentBackFAB.setOnClickListener {
-            val intent = Intent(this,StudentListActivity::class.java)
-            startActivity(intent)
+            finish()
         }
 
         addStudentBtn.setOnClickListener {
