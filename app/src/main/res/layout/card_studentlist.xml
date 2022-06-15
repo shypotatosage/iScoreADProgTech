@@ -16,24 +16,22 @@
             <ImageView
                 android:id="@+id/classImageView"
                 android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="-15dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="-95dp"
+                android:layout_marginEnd="-35dp"
                 android:translationZ="10dp"
                 app:layout_constraintEnd_toEndOf="@+id/studentofclass_CardView"
-                app:layout_constraintTop_toTopOf="@+id/studentofclass_CardView"
+                app:layout_constraintTop_toBottomOf="@+id/studentofclass_CardView"
                 app:srcCompat="@drawable/littlepeoples__1_" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/studentofclass_CardView"
                 android:layout_width="330dp"
-                android:layout_height="150dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="20dp"
                 android:backgroundTint="#FFBC84"
                 app:cardCornerRadius="25dp"
                 app:cardElevation="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -47,6 +45,8 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
 
                         <TextView
                             android:id="@+id/studentAddressTV"
-                            android:layout_width="wrap_content"
+                            android:layout_width="190dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:text="Jl. Citraland Surabaya Blok A"
@@ -65,7 +65,7 @@
 
                         <TextView
                             android:id="@+id/studentNameTV"
-                            android:layout_width="wrap_content"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="28dp"
                             android:text="Micheila Jiemesha"
@@ -78,7 +78,7 @@
 
                         <TextView
                             android:id="@+id/studentPhoneTV"
-                            android:layout_width="wrap_content"
+                            android:layout_width="190dp"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="3dp"
