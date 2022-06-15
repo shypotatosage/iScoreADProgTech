@@ -22,6 +22,7 @@ class EditScoreActivity : AppCompatActivity() {
         GetIntent()
         listener()
     }
+
     private fun GetIntent() {
         classPosition  = intent.getIntExtra("Class Position", -1)
         studentPosition  = intent.getIntExtra("Student Position", -1)
@@ -44,7 +45,6 @@ class EditScoreActivity : AppCompatActivity() {
                 val sid = GlobalVar.classArrayList[classPosition].students[studentPosition].id
                 val scoreid = GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].id
                 myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("scores").child(scoreid).removeValue()
-                finish()
             }
         }
 
@@ -74,9 +74,6 @@ class EditScoreActivity : AppCompatActivity() {
                 myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("scores").child(scoreid).child("name").setValue(name).addOnSuccessListener {
                     Toast.makeText(this,"Data Updated", Toast.LENGTH_SHORT).show()
                 }
-
-                finish()
-
             }
         }
     }

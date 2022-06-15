@@ -91,7 +91,7 @@ class MainMenuActivity : AppCompatActivity() {
                     classavailable_textView.setText(classcount.toString() + " Class Available")
 //                    myRef.child("users").child(uid).child("image").setValue(filename)
                     val imageName = dataSnapshot.child("image").getValue()
-                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName.jpg")
+                    val storageRef = FirebaseStorage.getInstance().reference.child("images/$imageName")
                     val localfile = File.createTempFile("tempImage", "jpg")
                     storageRef.getFile(localfile).addOnSuccessListener {
                         val bitmap = BitmapFactory.decodeFile(localfile.absolutePath)
