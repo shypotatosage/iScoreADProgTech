@@ -19,18 +19,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/registerBackFAB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="18dp"
-                    android:layout_marginTop="18dp"
-                    android:clickable="true"
-                    app:backgroundTint="#FF8C32"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/ic_arrowback" />
-
                 <TextView
                     android:id="@+id/loginHereTV"
                     android:layout_width="wrap_content"
@@ -47,7 +35,7 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="18dp"
                     android:text="Already Have An Account?"
                     android:textColor="#000000"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +81,7 @@
                         android:layout_height="wrap_content"
                         android:background="#FFFFFF"
                         android:hint="Username"
+                        android:inputType="text"
                         app:hintEnabled="false" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -118,7 +107,7 @@
                     android:id="@+id/registerTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="68dp"
+                    android:layout_marginTop="50dp"
                     android:text="REGISTER"
                     android:textColor="#06113C"
                     android:textSize="32sp"
@@ -140,7 +129,8 @@
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FFFFFF"
-                        android:hint="Email" />
+                        android:hint="Email"
+                        android:inputType="textEmailAddress" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

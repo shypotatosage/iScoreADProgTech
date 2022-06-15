@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -27,6 +28,9 @@ import java.util.*
 
 
 class MainMenuActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
@@ -36,6 +40,16 @@ class MainMenuActivity : AppCompatActivity() {
     }
 
     private fun Listener(){
+
+        logoutBtn.setOnClickListener {
+            auth = Firebase.auth
+            auth.signOut()
+
+            val myIntent = Intent(this, RegisterActivity::class.java)
+
+            startActivity(myIntent)
+            finishAffinity()
+        }
 
         updateprofile_button.setOnClickListener {
             val myIntent = Intent(this, UpdateProfileActivity::class.java)

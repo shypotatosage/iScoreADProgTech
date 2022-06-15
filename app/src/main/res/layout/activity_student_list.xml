@@ -61,10 +61,11 @@
 
             <TextView
                 android:id="@+id/studentListTV"
-                android:layout_width="wrap_content"
+                android:layout_width="290dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="90dp"
                 android:text="Student Of Class X"
+                android:textAlignment="center"
                 android:textColor="#06113C"
                 android:textSize="32sp"
                 android:textStyle="bold"

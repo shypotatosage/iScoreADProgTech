@@ -39,14 +39,13 @@
                     android:id="@+id/addClassTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="68dp"
                     android:text="Add Class"
                     android:textColor="#06113C"
                     android:textSize="32sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toBottomOf="@+id/addClassBackFAB" />
 
                 <ImageView
                     android:id="@+id/addClassImage"
@@ -83,7 +82,8 @@
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FFFFFF"
-                        android:hint="Name" />
+                        android:hint="Name"
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -99,7 +99,8 @@
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FFFFFF"
-                        android:hint="Description" />
+                        android:hint="Description"
+                        android:inputType="text" />
                 </com.google.android.material.textfield.TextInputLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
