@@ -1,6 +1,8 @@
 package com.example.iscore
 
 import Database.GlobalVar
+import Model.Score
+import Model.Student
 import Model.User
 import android.app.Activity
 import android.app.ProgressDialog
@@ -42,8 +44,6 @@ class UpdateProfileActivity : AppCompatActivity() {
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
     lateinit var imagePreview: ImageView
-    lateinit var btn_choose_image: Button
-    lateinit var btn_upload_image: Button
     private var ImageUri : Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -108,6 +108,7 @@ class UpdateProfileActivity : AppCompatActivity() {
             user?.let {
                 // Name, email address, and profile photo Url
                 val uid = user.uid
+
                     user.updatePassword(password)
                     user.updateEmail(email)
                     val database = Firebase.database
@@ -121,7 +122,6 @@ class UpdateProfileActivity : AppCompatActivity() {
                     myRef.child("users").child(uid).child("email").setValue(email)
                     myRef.child("users").child(uid).child("username").setValue(uname).addOnSuccessListener {
                         Toast.makeText(this,"Data Updated",Toast.LENGTH_SHORT).show()
-                        Toast.makeText(this,filename,Toast.LENGTH_SHORT).show()
                     }
             }
         }

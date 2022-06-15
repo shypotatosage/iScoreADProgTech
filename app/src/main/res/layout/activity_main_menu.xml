@@ -134,7 +134,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/studentlist_CardView"
                 app:layout_constraintStart_toStartOf="@+id/studentlist_CardView"
                 app:layout_constraintTop_toTopOf="@+id/studentlist_CardView"
-                app:srcCompat="@drawable/bookglobe" />
+                app:srcCompat="@drawable/deleteaccount" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/studentlist_CardView"
