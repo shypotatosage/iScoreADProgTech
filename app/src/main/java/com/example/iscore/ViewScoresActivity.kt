@@ -10,6 +10,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -41,6 +42,7 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
         super.onResume()
 
         scoreArrayList = arrayListOf()
+        adapter.notifyDataSetChanged()
         setAdapter()
         getData()
     }
@@ -78,6 +80,7 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
 
                     GlobalVar.classArrayList[classPosition].students[studentPosition].scores = scoreArrayList
 
+                    Toast.makeText(applicationContext, "" + scoreArrayList.size, Toast.LENGTH_SHORT).show()
                     scoreArrayList = arrayListOf()
                     adapter.notifyDataSetChanged()
                 }
