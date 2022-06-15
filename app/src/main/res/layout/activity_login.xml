@@ -97,6 +97,7 @@
                     android:layout_height="wrap_content"
                     android:backgroundTint="#FFFFFF"
                     android:hint="Password"
+                    android:password="true"
                     android:textSize="16dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
