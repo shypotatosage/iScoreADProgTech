@@ -23,13 +23,14 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
 
     private var classPosition: Int = -1
     private var studentPosition: Int = -1
-    private var scoreArrayList: ArrayList<Score> = arrayListOf()
+    private lateinit var scoreArrayList: ArrayList<Score>
     private lateinit var adapter: ViewScoresRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view_scores)
 
+        scoreArrayList = arrayListOf()
         GetIntent()
         setAdapter()
         getData()
@@ -39,6 +40,7 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
     override fun onResume() {
         super.onResume()
 
+        scoreArrayList = arrayListOf()
         setAdapter()
         getData()
     }
@@ -76,8 +78,8 @@ class ViewScoresActivity : AppCompatActivity(), CardListener {
 
                     GlobalVar.classArrayList[classPosition].students[studentPosition].scores = scoreArrayList
 
-                    adapter.notifyDataSetChanged()
                     scoreArrayList = arrayListOf()
+                    adapter.notifyDataSetChanged()
                 }
             }
 

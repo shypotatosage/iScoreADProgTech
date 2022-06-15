@@ -20,12 +20,13 @@ class IndividualStudentActivity : AppCompatActivity() {
 
     private var classPosition: Int = -1
     private var studentPosition: Int = -1
-    private var studentArrayList: ArrayList<Student> = arrayListOf()
+    private lateinit var studentArrayList: ArrayList<Student>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_individual_student)
 
+        studentArrayList = arrayListOf()
         GetIntent()
         getData()
         setData()
@@ -34,7 +35,7 @@ class IndividualStudentActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-
+        studentArrayList = arrayListOf()
         getData()
         listener()
     }
@@ -125,7 +126,6 @@ class IndividualStudentActivity : AppCompatActivity() {
                     Log.d("Data", error.getMessage()) //Don't ignore errors!
                 }
             })
-
 
         }
 
