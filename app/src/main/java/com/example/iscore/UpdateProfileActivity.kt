@@ -52,10 +52,12 @@ class UpdateProfileActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         listener()
+        setData()
+    }
 
-       updateProfileBackFAB.setOnClickListener {
-            finish()
-        }
+    private fun setData() {
+        unameUpdateTIL.editText?.setText(GlobalVar.user.username)
+        emailUpdateTIL.editText?.setText(GlobalVar.user.email)
     }
 
     private fun selectImage() {
@@ -75,9 +77,14 @@ class UpdateProfileActivity : AppCompatActivity() {
     }
 
     private fun listener() {
+        updateProfileBackFAB.setOnClickListener {
+            finish()
+        }
+
         imageView4.setOnClickListener {
             selectImage()
         }
+
         updateProfileBtn.setOnClickListener {
             val progressDialog = ProgressDialog(this)
             progressDialog.setMessage("Uploading File...")
@@ -121,6 +128,7 @@ class UpdateProfileActivity : AppCompatActivity() {
                     myRef.child("users").child(uid).child("image").setValue(filename)
                     myRef.child("users").child(uid).child("email").setValue(email)
                     myRef.child("users").child(uid).child("username").setValue(uname).addOnSuccessListener {
+                        GlobalVar.user = User(uid, uname, email)
                         Toast.makeText(this,"Data Updated",Toast.LENGTH_SHORT).show()
 
                         finish()
