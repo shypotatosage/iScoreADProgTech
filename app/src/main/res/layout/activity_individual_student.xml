@@ -32,10 +32,11 @@
 
             <TextView
                 android:id="@+id/namaindividualstudent_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="85dp"
                 android:text="Micheila Jiemesha"
+                android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="28dp"
                 android:textStyle="bold"
@@ -45,10 +46,11 @@
 
             <TextView
                 android:id="@+id/alamatindividualstudent_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Jl. Citraland Surabaya Blok A"
+                android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -57,10 +59,11 @@
 
             <TextView
                 android:id="@+id/notelpindividualstudent_textView"
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="0888888888888"
+                android:textAlignment="center"
                 android:textColor="#000000"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"

@@ -44,7 +44,7 @@
                     android:id="@+id/classNameTV"
                     android:layout_width="185dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="28dp"
                     android:layout_marginTop="20dp"
                     android:text="Class Name"
                     android:textColor="#000000"
@@ -57,14 +57,25 @@
                     android:id="@+id/classStudentTV"
                     android:layout_width="185dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="45dp"
+                    android:layout_marginTop="4dp"
                     android:text="00 Students Available"
+                    android:textColor="#CC232323"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/classNameTV"
+                    app:layout_constraintTop_toBottomOf="@+id/classNameTV" />
+
+                <TextView
+                    android:id="@+id/classDescTV"
+                    android:layout_width="185dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="45dp"
+                    android:text="Class Description"
                     android:textColor="#000000"
                     android:textSize="15sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/classNameTV"
-                    app:layout_constraintTop_toBottomOf="@+id/classNameTV" />
+                    app:layout_constraintStart_toStartOf="@id/classStudentTV"
+                    app:layout_constraintTop_toBottomOf="@+id/classStudentTV" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.card.MaterialCardView>
