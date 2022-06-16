@@ -28,7 +28,7 @@ class EditScoreActivity : AppCompatActivity() {
     private fun setData() {
         editScoreNameTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].name)
         editScoreNoteTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].note)
-        editScoreScoreTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].value)
+        editScoreScoreTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].value.toString())
     }
 
     private fun GetIntent() {
