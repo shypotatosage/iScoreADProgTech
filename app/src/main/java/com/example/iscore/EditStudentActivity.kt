@@ -20,9 +20,17 @@ class EditStudentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_edit_student)
 
         GetIntent()
+        setData()
         listener()
 
     }
+
+    private fun setData() {
+        editStudentNameTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].name)
+        editStudentAddressTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].address)
+        editStudentNoTelpTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].phoneNumber)
+    }
+
     private fun GetIntent() {
         classPosition  = intent.getIntExtra("Class Position", -1)
         studentPosition  = intent.getIntExtra("Student Position", -1)
@@ -32,32 +40,60 @@ class EditStudentActivity : AppCompatActivity() {
         editStudentBackFAB.setOnClickListener {
             finish()
         }
+
         editStudentbutton.setOnClickListener {
             val name = editStudentNameTIL.editText?.text.toString().trim();
             val address = editStudentAddressTIL.editText?.text.toString().trim();
             val phone = editStudentNoTelpTIL.editText?.text.toString().trim();
+            var studentValid = true
 
-            val user = FirebaseAuth.getInstance().currentUser
-            user?.let {
-                // Name, email address, and profile photo Url
-                val uid = user.uid
-                //Tunggu mimi confirm
-                val cid = GlobalVar.classArrayList[classPosition].id
-                val sid = GlobalVar.classArrayList[classPosition].students[studentPosition].id
+            if (name.isEmpty()) {
+                editStudentNameTIL.error = "Student Name is required"
+                studentValid = false
+            } else {
+                editStudentNameTIL.error = ""
+            }
+
+            if (address.isEmpty()) {
+                editStudentAddressTIL.error = "Student Address is required"
+                studentValid = false
+            } else {
+                editStudentAddressTIL.error = ""
+            }
+
+            if (phone.isEmpty()) {
+                editStudentNoTelpTIL.error = "Student Phone Number is required"
+                studentValid = false
+            } else {
+                editStudentNoTelpTIL.error = ""
+            }
+
+            if (studentValid) {
+                val user = FirebaseAuth.getInstance().currentUser
+                user?.let {
+                    // Name, email address, and profile photo Url
+                    val uid = user.uid
+                    //Tunggu mimi confirm
+                    val cid = GlobalVar.classArrayList[classPosition].id
+                    val sid = GlobalVar.classArrayList[classPosition].students[studentPosition].id
 //                Toast.makeText(this,cid, Toast.LENGTH_SHORT).show()
-                val myRef = FirebaseDatabase.getInstance().getReference("users")
-                val student =  mapOf<String,String>(
-                    "id" to sid,
-                    "address" to address,
-                    "name" to name,
-                    "phoneNumber" to phone,
-                )
-                myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("address").setValue(address)
-                myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("phoneNumber").setValue(phone)
-                myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("name").setValue(name).addOnSuccessListener {
-                    Toast.makeText(this,"Data Updated", Toast.LENGTH_SHORT).show()
+                    val myRef = FirebaseDatabase.getInstance().getReference("users")
+                    val student = mapOf<String, String>(
+                        "id" to sid,
+                        "address" to address,
+                        "name" to name,
+                        "phoneNumber" to phone,
+                    )
+                    myRef.child("users").child(uid).child("classes").child(cid).child("students")
+                        .child(sid).child("address").setValue(address)
+                    myRef.child("users").child(uid).child("classes").child(cid).child("students")
+                        .child(sid).child("phoneNumber").setValue(phone)
+                    myRef.child("users").child(uid).child("classes").child(cid).child("students")
+                        .child(sid).child("name").setValue(name).addOnSuccessListener {
+                        Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show()
+                    }
+                    finish()
                 }
-                finish()
             }
         }
     }

@@ -80,6 +80,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/addClassImage2">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextClassName"
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FFFFFF"
@@ -96,6 +97,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/editClassNameTIL">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editTextClassDesc"
                         android:layout_width="340dp"
                         android:layout_height="wrap_content"
                         android:backgroundTint="#FFFFFF"

@@ -19,8 +19,16 @@ class EditScoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_score)
+
         GetIntent()
+        setData()
         listener()
+    }
+
+    private fun setData() {
+        editScoreNameTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].name)
+        editScoreNoteTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].note)
+        editScoreScoreTIL.editText?.setText(GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].value)
     }
 
     private fun GetIntent() {
@@ -54,27 +62,51 @@ class EditScoreActivity : AppCompatActivity() {
             val name = editScoreNameTIL.editText?.text.toString().trim();
             val note = editScoreNoteTIL.editText?.text.toString().trim();
             val score = editScoreScoreTIL.editText?.text.toString().trim();
+            var scoreValid = true
 
-            val user = FirebaseAuth.getInstance().currentUser
-            user?.let {
-                // Name, email address, and profile photo Url
-                val uid = user.uid
-                //Tunggu mimi confirm
-                val cid = GlobalVar.classArrayList[classPosition].id
-                val sid = GlobalVar.classArrayList[classPosition].students[studentPosition].id
-                val scoreid = GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].id
+            if (name.isEmpty()) {
+                editScoreNameTIL.error = "Score Name is required"
+                scoreValid = false
+            } else {
+                editScoreNameTIL.error = ""
+            }
+
+            if (score.isEmpty()) {
+                editScoreScoreTIL.error = "Score is required"
+                scoreValid = false
+            } else {
+                editScoreScoreTIL.error = ""
+            }
+
+            if (scoreValid) {
+                val user = FirebaseAuth.getInstance().currentUser
+                user?.let {
+                    // Name, email address, and profile photo Url
+                    val uid = user.uid
+                    //Tunggu mimi confirm
+                    val cid = GlobalVar.classArrayList[classPosition].id
+                    val sid = GlobalVar.classArrayList[classPosition].students[studentPosition].id
+                    val scoreid =
+                        GlobalVar.classArrayList[classPosition].students[studentPosition].scores[position].id
 //                Toast.makeText(this,cid, Toast.LENGTH_SHORT).show()
-                val myRef = FirebaseDatabase.getInstance().getReference("users")
-                val student =  mapOf<String,String>(
-                    "id" to scoreid,
-                    "note" to note,
-                    "name" to name,
-                    "value" to score,
-                )
-                myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("scores").child(scoreid).child("value").setValue(score)
-                myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("scores").child(scoreid).child("note").setValue(note)
-                myRef.child("users").child(uid).child("classes").child(cid).child("students").child(sid).child("scores").child(scoreid).child("name").setValue(name).addOnSuccessListener {
-                    Toast.makeText(this,"Data Updated", Toast.LENGTH_SHORT).show()
+                    val myRef = FirebaseDatabase.getInstance().getReference("users")
+                    val student = mapOf<String, String>(
+                        "id" to scoreid,
+                        "note" to note,
+                        "name" to name,
+                        "value" to score,
+                    )
+                    myRef.child("users").child(uid).child("classes").child(cid).child("students")
+                        .child(sid).child("scores").child(scoreid).child("value").setValue(score)
+                    myRef.child("users").child(uid).child("classes").child(cid).child("students")
+                        .child(sid).child("scores").child(scoreid).child("note").setValue(note)
+                    myRef.child("users").child(uid).child("classes").child(cid).child("students")
+                        .child(sid).child("scores").child(scoreid).child("name").setValue(name)
+                        .addOnSuccessListener {
+                            Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show()
+
+                            finish()
+                        }
                 }
             }
         }
