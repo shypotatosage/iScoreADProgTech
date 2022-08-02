@@ -21,8 +21,15 @@ class EditClassActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_class)
+
         GetIntent()
+        setData()
         listener()
+    }
+
+    private fun setData() {
+        editTextClassName.setText(GlobalVar.classArrayList[position].name)
+        editTextClassDesc.setText(GlobalVar.classArrayList[position].desc)
     }
 
     private fun GetIntent() {
@@ -33,27 +40,49 @@ class EditClassActivity : AppCompatActivity() {
         editClassBackFAB.setOnClickListener {
             finish()
         }
+
         editClassBtn.setOnClickListener {
             val name = editClassNameTIL.editText?.text.toString().trim();
             val desc = editClassDescTIL.editText?.text.toString().trim();
+            var classValid = true
 
-            val user = FirebaseAuth.getInstance().currentUser
-            user?.let {
-                // Name, email address, and profile photo Url
-                val uid = user.uid
-                val cid = GlobalVar.classArrayList[position].id
+            if (name.isEmpty()) {
+                editClassNameTIL.error = "Class Name is required"
+                classValid = false
+            } else {
+                editClassNameTIL.error = ""
+            }
+
+            if (desc.isEmpty()) {
+                editClassDescTIL.error = "Class Description is required"
+                classValid = false
+            } else {
+                editClassDescTIL.error = ""
+            }
+
+            if (classValid) {
+                val user = FirebaseAuth.getInstance().currentUser
+                user?.let {
+                    // Name, email address, and profile photo Url
+                    val uid = user.uid
+                    val cid = GlobalVar.classArrayList[position].id
 //                Toast.makeText(this,cid, Toast.LENGTH_SHORT).show()
-                val myRef = FirebaseDatabase.getInstance().getReference("users")
-                val classroom =  mapOf<String,String>(
-                    "id" to cid,
-                    "desc" to desc,
-                    "name" to name,
-                )
-                myRef.child("users").child(uid).child("classes").child(cid).child("desc").setValue(desc)
-                myRef.child("users").child(uid).child("classes").child(cid).child("name").setValue(name).addOnSuccessListener {
-                    Toast.makeText(this,"Data Updated", Toast.LENGTH_SHORT).show()
-                }
+                    val myRef = FirebaseDatabase.getInstance().getReference("users")
+                    val classroom = mapOf<String, String>(
+                        "id" to cid,
+                        "desc" to desc,
+                        "name" to name,
+                    )
+                    myRef.child("users").child(uid).child("classes").child(cid).child("desc")
+                        .setValue(desc)
+                    myRef.child("users").child(uid).child("classes").child(cid).child("name")
+                        .setValue(name).addOnSuccessListener {
+                        Toast.makeText(this, "Data Updated", Toast.LENGTH_SHORT).show()
 
+                            finish()
+                    }
+
+                }
             }
         }
     }
